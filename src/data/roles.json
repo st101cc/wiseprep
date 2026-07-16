@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "software-engineer",
+    "title": "Software Engineer",
+    "titleZh": "軟體工程師",
+    "category": "engineering",
+    "description": "負責設計、開發、測試與維護軟體系統，涵蓋後端服務、系統架構到全端開發。",
+    "requiredSkills": ["資料結構與演算法", "OOP 設計原則", "System Design", "Git", "SQL"],
+    "niceToHaveSkills": ["雲端服務 (AWS/GCP)", "Docker/Kubernetes", "分散式系統", "CI/CD"]
+  },
+  {
+    "slug": "frontend-engineer",
+    "title": "Frontend Engineer",
+    "titleZh": "前端工程師",
+    "category": "engineering",
+    "description": "開發使用者介面與互動體驗，注重效能優化、無障礙設計與跨瀏覽器相容性。",
+    "requiredSkills": ["JavaScript / TypeScript", "React / Vue", "HTML/CSS", "Web 效能優化", "Git"],
+    "niceToHaveSkills": ["Next.js / Nuxt", "GraphQL", "Testing (Jest, Cypress)", "Design System"]
+  },
+  {
+    "slug": "backend-engineer",
+    "title": "Backend Engineer",
+    "titleZh": "後端工程師",
+    "category": "engineering",
+    "description": "建構 API、服務架構與資料庫設計，處理高並發、效能調優與系統穩定性。",
+    "requiredSkills": ["RESTful API 設計", "資料庫設計 (SQL/NoSQL)", "資料結構與演算法", "System Design", "Linux"],
+    "niceToHaveSkills": ["微服務架構", "Message Queue (Kafka/RabbitMQ)", "Redis", "gRPC"]
+  },
+  {
+    "slug": "data-engineer",
+    "title": "Data Engineer",
+    "titleZh": "資料工程師",
+    "category": "data",
+    "description": "建構資料管道與 ETL 流程，維護資料倉儲，為資料分析與 ML 提供高品質資料基礎。",
+    "requiredSkills": ["SQL / Python", "ETL 設計", "Spark / Flink", "資料倉儲 (BigQuery/Redshift)", "Airflow"],
+    "niceToHaveSkills": ["Kafka", "dbt", "資料治理", "Streaming 架構"]
+  },
+  {
+    "slug": "ml-engineer",
+    "title": "ML Engineer",
+    "titleZh": "機器學習工程師",
+    "category": "ai",
+    "description": "負責 ML 模型的訓練、部署與上線監控，bridge 資料科學與產品工程。",
+    "requiredSkills": ["Python", "ML 框架 (PyTorch/TensorFlow)", "特徵工程", "Model Serving", "SQL"],
+    "niceToHaveSkills": ["MLOps 工具 (MLflow/Kubeflow)", "LLM/GenAI", "A/B Testing", "分散式訓練"]
+  },
+  {
+    "slug": "product-manager",
+    "title": "Product Manager",
+    "titleZh": "產品經理",
+    "category": "product",
+    "description": "定義產品願景與路線圖，協調工程、設計、商業等跨職能團隊實現產品目標。",
+    "requiredSkills": ["需求分析與規格撰寫", "資料分析", "跨部門溝通", "用戶研究", "Roadmap 規劃"],
+    "niceToHaveSkills": ["技術背景", "SQL 查詢能力", "競品分析", "A/B Testing"]
+  },
+  {
+    "slug": "ux-designer",
+    "title": "UX Designer",
+    "titleZh": "UX 設計師",
+    "category": "design",
+    "description": "研究用戶需求，設計直覺易用的介面與流程，提升產品的使用體驗。",
+    "requiredSkills": ["用戶研究", "Figma 熟練", "Wireframe & Prototype", "設計系統", "Usability Testing"],
+    "niceToHaveSkills": ["前端基礎", "動態設計", "資料分析", "Design Sprint"]
+  },
+  {
+    "slug": "devops-sre",
+    "title": "DevOps / SRE",
+    "titleZh": "DevOps / 網站可靠性工程師",
+    "category": "engineering",
+    "description": "建構與維護 CI/CD 管線、基礎設施自動化，確保系統穩定性與可觀測性。",
+    "requiredSkills": ["Linux / Shell", "Docker / Kubernetes", "CI/CD", "監控與告警", "Terraform/IaC"],
+    "niceToHaveSkills": ["SRE 實踐 (SLO/SLA)", "雲端架構", "Security", "On-call 經驗"]
+  },
+  {
+    "slug": "firmware-engineer",
+    "title": "Firmware Engineer",
+    "titleZh": "韌體工程師",
+    "category": "hardware",
+    "description": "開發嵌入式系統韌體，負責硬體驅動程式、RTOS 及底層通訊協定實作。",
+    "requiredSkills": ["C / C++", "RTOS", "嵌入式系統", "硬體通訊協定 (I2C/SPI/UART)", "Debug 工具"],
+    "niceToHaveSkills": ["ARM Cortex 架構", "FPGA", "Linux Kernel", "Bootloader"]
+  },
+  {
+    "slug": "hardware-engineer",
+    "title": "Hardware Engineer",
+    "titleZh": "硬體工程師",
+    "category": "hardware",
+    "description": "設計與驗證電子電路與 PCB，負責硬體系統的規格定義與量產支援。",
+    "requiredSkills": ["電路設計", "PCB Layout", "訊號完整性", "量測儀器操作", "Schematic Review"],
+    "niceToHaveSkills": ["HDL / FPGA", "EMC/EMI 設計", "SPICE 模擬", "SI/PI 分析"]
+  },
+  {
+    "slug": "security-engineer",
+    "title": "Security Engineer",
+    "titleZh": "資安工程師",
+    "category": "security",
+    "description": "保護系統與資料安全，負責滲透測試、弱點掃描、事件應變與安全架構設計。",
+    "requiredSkills": ["網路與系統安全", "弱點分析 (OWASP)", "滲透測試", "Linux / Networking", "Scripting (Python)"],
+    "niceToHaveSkills": ["逆向工程", "雲端安全 (AWS/GCP)", "SIEM / SOC 經驗", "資安證照 (OSCP/CISSP)"]
+  },
+  {
+    "slug": "qa-engineer",
+    "title": "QA Engineer",
+    "titleZh": "品質保證工程師",
+    "category": "qa",
+    "description": "設計與執行測試策略，建立自動化測試框架，確保軟體品質與發布穩定性。",
+    "requiredSkills": ["測試案例設計", "自動化測試 (Selenium/Cypress)", "API 測試 (Postman)", "Bug 追蹤流程", "SQL"],
+    "niceToHaveSkills": ["CI/CD 整合", "效能測試 (JMeter)", "Scripting (Python/JS)", "測試框架設計"]
+  }
+]

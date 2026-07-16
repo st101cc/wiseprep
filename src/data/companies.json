@@ -1,0 +1,1093 @@
+[
+  {
+    "slug": "tsmc",
+    "name": "台灣積體電路製造公司",
+    "nameEn": "TSMC",
+    "industry": "semiconductor",
+    "companyType": "semiconductor",
+    "location": [
+      "新竹"
+    ],
+    "commonRoles": [
+      "firmware-engineer",
+      "hardware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2024-11",
+    "hasUserReports": false,
+    "website": "https://www.tsmc.com/",
+    "founded": 1987,
+    "wikidataId": "Q713418"
+  },
+  {
+    "slug": "mediatek",
+    "name": "聯發科技",
+    "nameEn": "MediaTek",
+    "industry": "semiconductor",
+    "companyType": "semiconductor",
+    "location": [
+      "新竹"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2024-10",
+    "hasUserReports": false,
+    "website": "https://www.mediatek.com/",
+    "founded": 1997,
+    "wikidataId": "Q699848"
+  },
+  {
+    "slug": "umc",
+    "name": "聯華電子",
+    "nameEn": "United Microelectronics Corporation",
+    "industry": "semiconductor",
+    "companyType": "semiconductor",
+    "location": [
+      "新竹"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.umc.com/",
+    "founded": 1980,
+    "wikidataId": "Q143616"
+  },
+  {
+    "slug": "ase",
+    "name": "日月光半導體",
+    "nameEn": "ASE Group",
+    "industry": "semiconductor",
+    "companyType": "semiconductor",
+    "location": [
+      "高雄"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://ase.aseglobal.com/",
+    "founded": 1984,
+    "wikidataId": "Q25054159"
+  },
+  {
+    "slug": "realtek",
+    "name": "瑞昱半導體",
+    "nameEn": "Realtek",
+    "industry": "semiconductor",
+    "companyType": "semiconductor",
+    "location": [
+      "新竹"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.realtek.com/en/",
+    "founded": 1987,
+    "wikidataId": "Q619364"
+  },
+  {
+    "slug": "novatek",
+    "name": "聯詠科技",
+    "nameEn": "Novatek Microelectronics Corp.",
+    "industry": "semiconductor",
+    "companyType": "semiconductor",
+    "location": [
+      "新竹"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "http://www.novatek.com.tw/",
+    "founded": 1997,
+    "wikidataId": "Q28415452"
+  },
+  {
+    "slug": "phison",
+    "name": "群聯電子股份有限公司",
+    "nameEn": "Phison",
+    "industry": "hardware",
+    "companyType": "semiconductor",
+    "location": [
+      "苗栗"
+    ],
+    "commonRoles": [
+      "firmware-engineer",
+      "hardware-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "http://www.phison.com/",
+    "founded": 2000,
+    "wikidataId": "Q7186466"
+  },
+  {
+    "slug": "nvidia-taiwan",
+    "name": "輝達",
+    "nameEn": "Nvidia",
+    "industry": "semiconductor",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "hardware-engineer",
+      "ml-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2025-08",
+    "hasUserReports": false,
+    "website": "https://www.nvidia.com/",
+    "founded": 1993,
+    "wikidataId": "Q182477"
+  },
+  {
+    "slug": "amd-taiwan",
+    "name": "超微半導體",
+    "nameEn": "AMD",
+    "industry": "semiconductor",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.amd.com/",
+    "founded": 1969,
+    "wikidataId": "Q128896"
+  },
+  {
+    "slug": "synopsys-taiwan",
+    "name": "新思科技",
+    "nameEn": "Synopsys",
+    "industry": "software",
+    "companyType": "foreign",
+    "location": [
+      "新竹"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "hardware-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.synopsys.com/",
+    "founded": 1986,
+    "wikidataId": "Q2303478"
+  },
+  {
+    "slug": "micron-taiwan",
+    "name": "美光記憶台",
+    "nameEn": "Micron Technology",
+    "industry": "semiconductor",
+    "companyType": "foreign",
+    "location": [
+      "台中",
+      "桃園"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.micron.com/",
+    "founded": 1978,
+    "wikidataId": "Q1197548"
+  },
+  {
+    "slug": "alchip",
+    "name": "世芯-KY",
+    "nameEn": "Alchip Technologies",
+    "industry": "semiconductor",
+    "companyType": "semiconductor",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "google-taiwan",
+    "name": "Google",
+    "nameEn": "Google",
+    "industry": "software",
+    "companyType": "foreign",
+    "location": [
+      "台北",
+      "新北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "data-engineer",
+      "ml-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2024-11",
+    "hasUserReports": false,
+    "website": "https://about.google/",
+    "founded": 1998,
+    "wikidataId": "Q95"
+  },
+  {
+    "slug": "meta-taiwan",
+    "name": "Meta Taiwan",
+    "nameEn": "Meta",
+    "industry": "software",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "ml-engineer",
+      "data-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.meta.com/",
+    "founded": 2004,
+    "wikidataId": "Q380"
+  },
+  {
+    "slug": "aws-taiwan",
+    "name": "亞馬遜雲端運算服務",
+    "nameEn": "Amazon Web Services",
+    "industry": "software",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "devops-sre",
+      "data-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://aws.amazon.com/",
+    "founded": 2006,
+    "wikidataId": "Q456157"
+  },
+  {
+    "slug": "microsoft-taiwan",
+    "name": "微軟",
+    "nameEn": "Microsoft",
+    "industry": "hardware",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "data-engineer",
+      "ml-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2025-08",
+    "hasUserReports": false,
+    "website": "https://www.microsoft.com/",
+    "founded": 1975,
+    "wikidataId": "Q2283"
+  },
+  {
+    "slug": "apple-taiwan",
+    "name": "蘋果公司",
+    "nameEn": "Apple Inc.",
+    "industry": "hardware",
+    "companyType": "foreign",
+    "location": [
+      "台北",
+      "新北"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://apple.com/at/",
+    "founded": 1976,
+    "wikidataId": "Q312"
+  },
+  {
+    "slug": "line-taiwan",
+    "name": "LINE",
+    "nameEn": "LINE",
+    "industry": "software",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "frontend-engineer",
+      "data-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2024-09",
+    "hasUserReports": false,
+    "website": "https://line.me/",
+    "founded": null,
+    "wikidataId": "Q602471"
+  },
+  {
+    "slug": "shopee-taiwan",
+    "name": "蝦皮購物",
+    "nameEn": "Shopee",
+    "industry": "ecommerce",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "data-engineer",
+      "backend-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2024-11",
+    "hasUserReports": false,
+    "website": "https://shopee.com",
+    "founded": 2015,
+    "wikidataId": "Q54863641"
+  },
+  {
+    "slug": "coupang",
+    "name": "酷澎",
+    "nameEn": "Coupang",
+    "industry": "ecommerce",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "backend-engineer",
+      "data-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.coupang.com/",
+    "founded": 2010,
+    "wikidataId": "Q12620655"
+  },
+  {
+    "slug": "oracle-taiwan",
+    "name": "甲骨文公司",
+    "nameEn": "Oracle Corporation",
+    "industry": "software",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "backend-engineer",
+      "devops-sre"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.oracle.com/",
+    "founded": 1977,
+    "wikidataId": "Q19900"
+  },
+  {
+    "slug": "cisco-taiwan",
+    "name": "思科系統",
+    "nameEn": "Cisco",
+    "industry": "hardware",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "devops-sre",
+      "security-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.cisco.com/",
+    "founded": 1984,
+    "wikidataId": "Q173395"
+  },
+  {
+    "slug": "trend-micro",
+    "name": "趨勢科技",
+    "nameEn": "Trend Micro",
+    "industry": "software",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "backend-engineer",
+      "security-engineer",
+      "devops-sre"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2024-11",
+    "hasUserReports": false,
+    "website": "https://www.trendmicro.com/",
+    "founded": 1988,
+    "wikidataId": "Q700974"
+  },
+  {
+    "slug": "appier",
+    "name": "沛星互動科技",
+    "nameEn": "Appier",
+    "industry": "ai",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "ml-engineer",
+      "data-engineer",
+      "backend-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2024-09",
+    "hasUserReports": false,
+    "website": "https://www.appier.com/",
+    "founded": 2012,
+    "wikidataId": "Q56272861"
+  },
+  {
+    "slug": "91app",
+    "name": "91APP",
+    "nameEn": "91APP",
+    "industry": "ecommerce",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "frontend-engineer",
+      "backend-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "shopline",
+    "name": "SHOPLINE",
+    "nameEn": "SHOPLINE",
+    "industry": "ecommerce",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "frontend-engineer",
+      "backend-engineer",
+      "product-manager"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.shopline.com/",
+    "founded": 2013,
+    "wikidataId": "Q135951960"
+  },
+  {
+    "slug": "ikala",
+    "name": "iKala",
+    "nameEn": "Ikala",
+    "industry": "ai",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "ml-engineer",
+      "backend-engineer",
+      "data-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": "Q125393480"
+  },
+  {
+    "slug": "dcard",
+    "name": "狄卡",
+    "nameEn": "Dcard",
+    "industry": "software",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "frontend-engineer",
+      "data-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2025-08",
+    "hasUserReports": false,
+    "website": "https://www.dcard.tw/",
+    "founded": 2011,
+    "wikidataId": "Q22101169"
+  },
+  {
+    "slug": "pinkoi",
+    "name": "Pinkoi",
+    "nameEn": "Pinkoi",
+    "industry": "ecommerce",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "frontend-engineer",
+      "backend-engineer",
+      "ux-designer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.pinkoi.com/",
+    "founded": 2011,
+    "wikidataId": "Q55630047"
+  },
+  {
+    "slug": "kkday",
+    "name": "KKday",
+    "nameEn": "KKday",
+    "industry": "software",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "frontend-engineer",
+      "product-manager"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.kkday.com",
+    "founded": null,
+    "wikidataId": "Q28412951"
+  },
+  {
+    "slug": "gogolook",
+    "name": "Gogolook",
+    "nameEn": "Gogolook",
+    "industry": "software",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "ml-engineer",
+      "product-manager"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "kkcompany",
+    "name": "KKCompany",
+    "nameEn": "KKCompany",
+    "industry": "software",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "frontend-engineer",
+      "data-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "asus",
+    "name": "ASUS",
+    "nameEn": "ASUS",
+    "industry": "hardware",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "frontend-engineer",
+      "software-engineer",
+      "hardware-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2024-10",
+    "hasUserReports": false,
+    "website": "https://www.asus.com/",
+    "founded": 1989,
+    "wikidataId": "Q152864"
+  },
+  {
+    "slug": "acer",
+    "name": "宏碁",
+    "nameEn": "Acer Inc.",
+    "industry": "hardware",
+    "companyType": "listed",
+    "location": [
+      "新北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "hardware-engineer",
+      "frontend-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "msi",
+    "name": "Micro-Star International",
+    "nameEn": "Micro-Star International",
+    "industry": "hardware",
+    "companyType": "listed",
+    "location": [
+      "新北"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.msi.com/",
+    "founded": 1986,
+    "wikidataId": "Q502935"
+  },
+  {
+    "slug": "gigabyte",
+    "name": "技嘉科技",
+    "nameEn": "Gigabyte Technology",
+    "industry": "hardware",
+    "companyType": "listed",
+    "location": [
+      "新北"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.gigabyte.com/",
+    "founded": 1986,
+    "wikidataId": "Q697675"
+  },
+  {
+    "slug": "gogoro",
+    "name": "睿能創意股份有限公司",
+    "nameEn": "Gogoro",
+    "industry": "hardware",
+    "companyType": "listed",
+    "location": [
+      "桃園"
+    ],
+    "commonRoles": [
+      "firmware-engineer",
+      "software-engineer",
+      "hardware-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.gogoro.com/",
+    "founded": 2011,
+    "wikidataId": "Q19880591"
+  },
+  {
+    "slug": "foxconn",
+    "name": "鴻海科技集團",
+    "nameEn": "Foxconn",
+    "industry": "hardware",
+    "companyType": "listed",
+    "location": [
+      "台北",
+      "新北"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.foxconn.com/",
+    "founded": 1974,
+    "wikidataId": "Q463094"
+  },
+  {
+    "slug": "quanta",
+    "name": "廣達電腦",
+    "nameEn": "Quanta Computer",
+    "industry": "software",
+    "companyType": "listed",
+    "location": [
+      "台北",
+      "桃園"
+    ],
+    "commonRoles": [
+      "hardware-engineer",
+      "firmware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "http://www.quantatw.com/",
+    "founded": 1988,
+    "wikidataId": "Q696743"
+  },
+  {
+    "slug": "delta-electronics",
+    "name": "台達電子",
+    "nameEn": "Delta Electronics",
+    "industry": "hardware",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "firmware-engineer",
+      "hardware-engineer",
+      "software-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "http://www.deltaww.com/",
+    "founded": 1971,
+    "wikidataId": "Q5254620"
+  },
+  {
+    "slug": "advantech",
+    "name": "研華科技",
+    "nameEn": "Advantech",
+    "industry": "hardware",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "firmware-engineer",
+      "software-engineer",
+      "hardware-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "http://www.advantech.com/",
+    "founded": 1983,
+    "wikidataId": "Q26954687"
+  },
+  {
+    "slug": "esun-digital",
+    "name": "玉山商業銀行",
+    "nameEn": "E.SUN Commercial Bank",
+    "industry": "fintech",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "data-engineer",
+      "security-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.esunbank.com.tw/",
+    "founded": 1992,
+    "wikidataId": "Q5321663"
+  },
+  {
+    "slug": "cathay-digital",
+    "name": "國泰金融控股公司",
+    "nameEn": "Cathay Financial Holding",
+    "industry": "fintech",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "data-engineer",
+      "backend-engineer",
+      "ml-engineer"
+    ],
+    "interviewDataCount": 1,
+    "lastUpdated": "2025-08",
+    "hasUserReports": false,
+    "website": "https://www.cathayholdings.com/holdings/",
+    "founded": 2001,
+    "wikidataId": "Q10926936"
+  },
+  {
+    "slug": "maicoin",
+    "name": "MaiCoin",
+    "nameEn": "MaiCoin",
+    "industry": "fintech",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "frontend-engineer",
+      "security-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "bitopro",
+    "name": "BitoPro",
+    "nameEn": "BitoPro",
+    "industry": "fintech",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "security-engineer",
+      "frontend-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "cycraft",
+    "name": "CyCraft",
+    "nameEn": "CyCraft",
+    "industry": "software",
+    "companyType": "startup",
+    "location": [
+      "新北"
+    ],
+    "commonRoles": [
+      "security-engineer",
+      "ml-engineer",
+      "backend-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "teamt5",
+    "name": "杜浦數位安全",
+    "nameEn": "TeamT5",
+    "industry": "software",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "security-engineer",
+      "backend-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": null
+  },
+  {
+    "slug": "txone",
+    "name": "睿控網安",
+    "nameEn": "TXOne Networks: 2021 Cyber security Report",
+    "industry": "software",
+    "companyType": "startup",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "security-engineer",
+      "firmware-engineer",
+      "backend-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": "Q114967677"
+  },
+  {
+    "slug": "pchome",
+    "name": "網路家庭國際資訊股份有限公司",
+    "nameEn": "PChome",
+    "industry": "ecommerce",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "frontend-engineer",
+      "data-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "http://www.pchome.com.tw/",
+    "founded": 1996,
+    "wikidataId": "Q10852079"
+  },
+  {
+    "slug": "momo",
+    "name": "MOMO購物網",
+    "nameEn": "Momo.com Inc.",
+    "industry": "ecommerce",
+    "companyType": "listed",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "frontend-engineer",
+      "data-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": null,
+    "founded": null,
+    "wikidataId": "Q56283373"
+  },
+  {
+    "slug": "foodpanda-taiwan",
+    "name": "Foodpanda",
+    "nameEn": "foodpanda",
+    "industry": "software",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "backend-engineer",
+      "data-engineer",
+      "product-manager"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "http://www.foodpanda.com/",
+    "founded": 2012,
+    "wikidataId": "Q16981132"
+  },
+  {
+    "slug": "uber-taiwan",
+    "name": "优步",
+    "nameEn": "Uber",
+    "industry": "software",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "software-engineer",
+      "data-engineer",
+      "backend-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-06",
+    "hasUserReports": false,
+    "website": "https://www.uber.com/",
+    "founded": 2009,
+    "wikidataId": "Q780442"
+  }
+]

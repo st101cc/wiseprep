@@ -1,0 +1,151 @@
+[
+  {
+    "id": "trend-micro-se",
+    "companySlug": "trend-micro",
+    "roleSlug": "software-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2024-11", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "HR Phone Screen", "nameZh": "HR 電話初篩", "estimatedDuration": "30 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["自我介紹", "工作動機", "薪資期望"], "prepTips": ["準備 2 分鐘中英文自我介紹", "了解趨勢科技主要產品線（資安解決方案）", "事先研究市場薪資水準"], "interviewerRole": "HR Recruiter" },
+      { "order": 2, "name": "Online Coding Test", "nameZh": "線上程式測驗", "estimatedDuration": "90 分鐘", "format": "async", "difficulty": 3, "questionTypes": ["LeetCode 演算法", "資料結構", "String Manipulation"], "prepTips": ["練習 LeetCode Medium 等級題目", "注重 Array、Tree、Graph 題型", "熟悉時間複雜度分析"], "interviewerRole": "系統自動批改" },
+      { "order": 3, "name": "Technical Interview", "nameZh": "技術面試", "estimatedDuration": "60–90 分鐘", "format": "video", "difficulty": 4, "questionTypes": ["System Design", "Coding 現場", "OOP 設計原則", "過去專案深問"], "prepTips": ["準備 2–3 個深度技術專案說明", "練習 Live Coding（可出聲思考）", "熟悉資安領域常見架構（有加分）"], "interviewerRole": "Tech Lead / Senior Engineer" },
+      { "order": 4, "name": "Behavioral Interview", "nameZh": "行為面試", "estimatedDuration": "45 分鐘", "format": "video", "difficulty": 2, "questionTypes": ["STAR 行為題", "團隊合作", "衝突處理", "職涯規劃"], "prepTips": ["準備 5 個 STAR 格式情境故事", "著重跨部門合作經驗", "表達對資安領域的興趣"], "interviewerRole": "Engineering Manager" },
+      { "order": 5, "name": "Final Onsite", "nameZh": "最終現場面試", "estimatedDuration": "半天", "format": "onsite", "difficulty": 3, "questionTypes": ["文化契合度", "與 VP 對談", "薪資談判"], "prepTips": ["準備問公司的問題（技術路線、團隊文化）", "展現對資安產業的熱情", "確認 Offer 細節（股票、獎金結構）"], "interviewerRole": "VP Engineering / HR" }
+    ]
+  },
+  {
+    "id": "line-taiwan-be",
+    "companySlug": "line-taiwan",
+    "roleSlug": "backend-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2024-09", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "Application Review", "nameZh": "履歷篩選", "estimatedDuration": "1–2 週", "format": "async", "difficulty": 1, "questionTypes": ["履歷關鍵字匹配", "學歷與年資確認"], "prepTips": ["確保履歷有 LINE 使用的技術關鍵字（Java/Go/Kotlin）", "量化你的技術成就"], "interviewerRole": "HR / 系統篩選" },
+      { "order": 2, "name": "Coding Assessment", "nameZh": "程式評測", "estimatedDuration": "120 分鐘", "format": "async", "difficulty": 3, "questionTypes": ["演算法題", "系統設計小題", "SQL 查詢"], "prepTips": ["熟悉 HackerRank 介面", "複習 Graph、DP、Tree 相關題型", "練習在時間壓力下解題"], "interviewerRole": "系統自動批改" },
+      { "order": 3, "name": "Technical Deep Dive", "nameZh": "技術深度面試", "estimatedDuration": "60 分鐘", "format": "video", "difficulty": 4, "questionTypes": ["Java/Go 語言深問", "微服務架構", "資料庫設計", "高並發處理"], "prepTips": ["深入了解 LINE 的後端技術棧（Java Spring / Go）", "準備高流量系統設計案例", "熟悉 Kafka、Redis 應用場景"], "interviewerRole": "Senior Backend Engineer" },
+      { "order": 4, "name": "System Design Interview", "nameZh": "System Design 面試", "estimatedDuration": "60 分鐘", "format": "video", "difficulty": 5, "questionTypes": ["分散式系統設計", "API 設計", "資料庫選型", "可擴展性規劃"], "prepTips": ["練習設計 Chat System、Feed System 等 LINE 核心功能", "說明 trade-off 決策過程", "考慮 LINE 台灣的業務規模（數百萬用戶）"], "interviewerRole": "Staff Engineer / Architect" },
+      { "order": 5, "name": "HR Final Interview", "nameZh": "HR 最終面試", "estimatedDuration": "30 分鐘", "format": "video", "difficulty": 1, "questionTypes": ["文化契合度", "職涯期望", "Offer 談判"], "prepTips": ["了解 LINE 的工程文化與福利", "準備職涯 3–5 年規劃", "確認日本企業文化適應性"], "interviewerRole": "HR Manager" }
+    ]
+  },
+  {
+    "id": "shopee-taiwan-de",
+    "companySlug": "shopee-taiwan",
+    "roleSlug": "data-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2024-11", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "HR Screening", "nameZh": "HR 初篩", "estimatedDuration": "30 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["背景確認", "英文能力測試", "薪資期望"], "prepTips": ["準備流利英文自我介紹（Shopee 工作語言為英文）", "了解 Shopee 台灣的業務範疇", "確認接受外商工作文化"], "interviewerRole": "HR Recruiter" },
+      { "order": 2, "name": "SQL & Python Assessment", "nameZh": "SQL & Python 評測", "estimatedDuration": "60 分鐘", "format": "async", "difficulty": 3, "questionTypes": ["複雜 SQL 查詢", "Python 資料處理", "ETL 邏輯題"], "prepTips": ["練習 Window Function、CTE 等進階 SQL", "Pandas 資料清理與轉換", "設計 ETL pipeline 的思路"], "interviewerRole": "系統自動批改" },
+      { "order": 3, "name": "Technical Interview", "nameZh": "技術面試", "estimatedDuration": "60 分鐘", "format": "video", "difficulty": 4, "questionTypes": ["資料架構設計", "Spark 最佳化", "Airflow DAG 設計", "過去資料專案"], "prepTips": ["深入準備一個完整的資料管道專案案例", "了解 Lambda/Kappa 架構", "熟悉 Shopee 的電商資料特性（高並發、大量 event）"], "interviewerRole": "Senior Data Engineer" },
+      { "order": 4, "name": "Hiring Manager Interview", "nameZh": "Hiring Manager 面試", "estimatedDuration": "45 分鐘", "format": "video", "difficulty": 3, "questionTypes": ["行為題", "資料平台規劃", "跨部門合作", "職涯期望"], "prepTips": ["展現主動解決問題的思維", "準備在資料品質/治理方面的經驗", "了解 Shopee 快速成長的工程文化"], "interviewerRole": "Data Engineering Manager" }
+    ]
+  },
+  {
+    "id": "appier-mle",
+    "companySlug": "appier",
+    "roleSlug": "ml-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2024-09", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "Recruiter Call", "nameZh": "招募者電話", "estimatedDuration": "20 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["背景介紹", "職位確認", "時程安排"], "prepTips": ["準備英文溝通（Appier 為日本上市公司，英文工作環境）", "了解 Appier 的 AI 產品線"], "interviewerRole": "Recruiter" },
+      { "order": 2, "name": "Take-home ML Project", "nameZh": "帶回家 ML 專案", "estimatedDuration": "3–5 天", "format": "async", "difficulty": 4, "questionTypes": ["模型訓練與評估", "特徵工程", "結果報告撰寫"], "prepTips": ["注重 EDA 過程說明", "清楚解釋模型選型理由", "提交乾淨可執行的程式碼與說明文件"], "interviewerRole": "技術團隊評審" },
+      { "order": 3, "name": "ML Technical Interview", "nameZh": "ML 技術面試", "estimatedDuration": "60 分鐘", "format": "video", "difficulty": 4, "questionTypes": ["ML 基礎理論", "Take-home 專案 deep-dive", "廣告 CTR 預測場景", "Model Serving"], "prepTips": ["深入說明 take-home 的每個決策", "複習 Gradient Boosting / Transformer 基礎", "了解廣告技術 ML 場景（Appier 核心業務）"], "interviewerRole": "ML Researcher / Senior MLE" },
+      { "order": 4, "name": "Engineering Interview", "nameZh": "工程面試", "estimatedDuration": "45 分鐘", "format": "video", "difficulty": 3, "questionTypes": ["Python 程式能力", "API 設計", "ML Pipeline 設計"], "prepTips": ["練習 Python OOP 與設計模式", "了解 FastAPI / Flask 用於 ML serving", "說明 MLOps 實踐經驗"], "interviewerRole": "Backend / Platform Engineer" },
+      { "order": 5, "name": "Culture Fit Interview", "nameZh": "文化契合面試", "estimatedDuration": "30 分鐘", "format": "video", "difficulty": 2, "questionTypes": ["行為題", "跨國協作", "職涯目標"], "prepTips": ["了解日本科技公司文化", "表達對 AI/AdTech 的長期興趣", "展現主動學習的態度"], "interviewerRole": "Engineering Director" }
+    ]
+  },
+  {
+    "id": "asus-fe",
+    "companySlug": "asus",
+    "roleSlug": "frontend-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2024-10", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "HR Phone Screen", "nameZh": "HR 電話初篩", "estimatedDuration": "20 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["基本背景", "薪資期望", "工作動機"], "prepTips": ["了解 ASUS 的產品線（NoteBook、IoT、Gaming）", "說明對硬體公司做前端的動機"], "interviewerRole": "HR" },
+      { "order": 2, "name": "Portfolio Review", "nameZh": "作品集審查", "estimatedDuration": "非同步", "format": "async", "difficulty": 2, "questionTypes": ["作品集評分", "GitHub 程式碼品質"], "prepTips": ["整理 GitHub 上最佳作品", "確保有 README 說明", "展示跨瀏覽器相容性考量"], "interviewerRole": "技術主管" },
+      { "order": 3, "name": "Technical Interview", "nameZh": "技術面試", "estimatedDuration": "60 分鐘", "format": "onsite", "difficulty": 3, "questionTypes": ["JavaScript 核心概念", "React 深問", "CSS 佈局", "Web 效能優化"], "prepTips": ["複習 Event Loop、Closure、Prototype Chain", "深入理解 React hooks 原理", "準備效能優化案例（Core Web Vitals）"], "interviewerRole": "Frontend Tech Lead" },
+      { "order": 4, "name": "Team Interview", "nameZh": "團隊面試", "estimatedDuration": "45 分鐘", "format": "onsite", "difficulty": 2, "questionTypes": ["與設計師合作", "跨部門溝通", "處理技術債"], "prepTips": ["準備與設計師和後端協作的實際案例", "說明如何平衡技術品質與交付速度"], "interviewerRole": "團隊成員 / PM" }
+    ]
+  },
+  {
+    "id": "tsmc-firmware",
+    "companySlug": "tsmc",
+    "roleSlug": "firmware-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2024-11", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "Online Application", "nameZh": "線上申請 & 篩選", "estimatedDuration": "2–3 週", "format": "async", "difficulty": 1, "questionTypes": ["學歷確認", "技術背景篩選", "英文能力"], "prepTips": ["確保學歷背景符合（電機/資工/物理相關）", "列出相關課程與實習經驗"], "interviewerRole": "HR 系統" },
+      { "order": 2, "name": "Written Technical Test", "nameZh": "筆試技術測驗", "estimatedDuration": "120 分鐘", "format": "test", "difficulty": 4, "questionTypes": ["C/C++ 程式題", "嵌入式系統概念", "電路基礎", "OS 概念"], "prepTips": ["複習 C pointer、memory management", "熟悉 RTOS 概念（任務調度、Mutex）", "複習數位電路基礎"], "interviewerRole": "技術部門出題" },
+      { "order": 3, "name": "Technical Interview Round 1", "nameZh": "技術面試第一輪", "estimatedDuration": "60 分鐘", "format": "onsite", "difficulty": 4, "questionTypes": ["C/C++ 深問", "韌體開發經驗", "除錯方法論", "Protocol 知識"], "prepTips": ["準備詳細的韌體專案描述（包括硬體規格）", "說明使用 Logic Analyzer 等工具的除錯流程", "熟悉 I2C/SPI/UART 協定細節"], "interviewerRole": "Firmware Engineer (Senior)" },
+      { "order": 4, "name": "Technical Interview Round 2", "nameZh": "技術面試第二輪", "estimatedDuration": "60 分鐘", "format": "onsite", "difficulty": 4, "questionTypes": ["系統架構設計", "Bootloader 流程", "Power Management", "效能優化"], "prepTips": ["了解半導體設備韌體的特殊需求", "準備 Bootloader 實作經驗說明", "思考在資源受限環境下的優化策略"], "interviewerRole": "Firmware Architect" },
+      { "order": 5, "name": "HR & Manager Interview", "nameZh": "HR & 主管面試", "estimatedDuration": "45 分鐘", "format": "onsite", "difficulty": 2, "questionTypes": ["職涯規劃", "輪班意願", "薪資談判", "企業文化"], "prepTips": ["了解台積電的輪班制度（部分職位需要）", "表達在半導體產業的長期發展意願", "確認 Bonus 與股票結構"], "interviewerRole": "HR + Department Manager" }
+    ]
+  },
+  {
+    "id": "mediatek-hw",
+    "companySlug": "mediatek",
+    "roleSlug": "hardware-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2024-10", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "HR Screening", "nameZh": "HR 初篩", "estimatedDuration": "30 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["學歷背景", "技術方向確認", "期望薪資"], "prepTips": ["確認電子/電機相關學歷", "說明應用領域（類比/數位/RF）", "研究聯發科 SoC 產品線"], "interviewerRole": "HR" },
+      { "order": 2, "name": "Technical Written Test", "nameZh": "技術筆試", "estimatedDuration": "90 分鐘", "format": "test", "difficulty": 4, "questionTypes": ["類比電路分析", "數位邏輯", "PCB 設計題", "訊號完整性基礎"], "prepTips": ["複習 Op-Amp 電路分析", "熟悉 HDL（Verilog）基礎", "練習 Timing Diagram 分析"], "interviewerRole": "技術出題組" },
+      { "order": 3, "name": "Technical Interview", "nameZh": "技術面試", "estimatedDuration": "60–90 分鐘", "format": "onsite", "difficulty": 5, "questionTypes": ["電路設計 deep dive", "SoC 架構理解", "量測與除錯方法", "過去設計案例"], "prepTips": ["準備詳細電路設計案例（含規格、挑戰、解決方案）", "熟悉 Oscilloscope/VNA 量測技巧", "了解 MIPI/PCIe/USB 等高速介面"], "interviewerRole": "Principal HW Engineer" },
+      { "order": 4, "name": "Cross-team Interview", "nameZh": "跨團隊面試", "estimatedDuration": "45 分鐘", "format": "onsite", "difficulty": 3, "questionTypes": ["與 FW/SW 協作", "量產支援經驗", "文件能力"], "prepTips": ["準備跨部門技術合作案例", "說明 DVT/PVT 量產流程經驗"], "interviewerRole": "Team Members / PM" },
+      { "order": 5, "name": "Final HR Interview", "nameZh": "最終 HR 面試", "estimatedDuration": "30 分鐘", "format": "onsite", "difficulty": 1, "questionTypes": ["薪資確認", "職位確認", "報到時間"], "prepTips": ["確認完整 Offer 細節（Base、Bonus、RSU）", "了解聯發科升遷軌道"], "interviewerRole": "HR Manager" }
+    ]
+  },
+  {
+    "id": "google-taiwan-se",
+    "companySlug": "google-taiwan",
+    "roleSlug": "software-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2024-11", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "Recruiter Screen", "nameZh": "招募者初篩", "estimatedDuration": "30 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["背景確認", "職位介紹", "流程說明"], "prepTips": ["了解 Google Taiwan 的主要產品與團隊", "確認目標 team（Cloud/YouTube/Maps）", "準備英文溝通"], "interviewerRole": "Recruiter" },
+      { "order": 2, "name": "Phone/Video Interview x2", "nameZh": "電話技術面試 × 2", "estimatedDuration": "45 分鐘 × 2", "format": "video", "difficulty": 4, "questionTypes": ["LeetCode Hard", "演算法分析", "Live Coding"], "prepTips": ["練習至少 200 道 LeetCode 題（含 Hard）", "訓練邊思考邊出聲的習慣", "熟悉時空複雜度分析表達"], "interviewerRole": "Software Engineer" },
+      { "order": 3, "name": "Onsite x4", "nameZh": "現場面試 × 4", "estimatedDuration": "45 分鐘 × 4", "format": "onsite", "difficulty": 5, "questionTypes": ["Coding", "System Design", "Googleyness & Leadership", "Role-related"], "prepTips": ["準備 System Design（分散式系統、大規模架構）", "練習 Googleyness 行為題（STAR 格式）", "用 Google Docs 練習線上白板 Coding"], "interviewerRole": "SWE / Staff SWE" },
+      { "order": 4, "name": "Hiring Committee Review", "nameZh": "招募委員會審核", "estimatedDuration": "1–4 週", "format": "async", "difficulty": 2, "questionTypes": ["面試記錄審查", "Leveling 決定"], "prepTips": ["耐心等待（Google 流程較長）", "可請 Recruiter 追蹤進度", "同時推進其他機會"], "interviewerRole": "Hiring Committee" }
+    ]
+  },
+  {
+    "id": "nvidia-taiwan-se",
+    "companySlug": "nvidia-taiwan",
+    "roleSlug": "software-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2025-08", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "Recruiter Screen", "nameZh": "招募者初篩", "estimatedDuration": "30 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["背景確認", "團隊媒合", "英文溝通"], "prepTips": ["確認目標團隊（驅動程式 / CUDA / 系統軟體 / AI 平台）", "準備流暢英文自我介紹", "了解 NVIDIA 台灣團隊多為系統軟體與硬體驗證"], "interviewerRole": "Recruiter" },
+      { "order": 2, "name": "Technical Phone Screen", "nameZh": "技術電話面試", "estimatedDuration": "60 分鐘", "format": "video", "difficulty": 4, "questionTypes": ["資料結構與演算法", "C/C++ 程式", "作業系統概念"], "prepTips": ["熟練 C/C++（NVIDIA 系統軟體以 C/C++ 為主）", "練習 LeetCode Medium–Hard", "複習記憶體管理與多執行緒"], "interviewerRole": "Software Engineer" },
+      { "order": 3, "name": "Onsite Loop", "nameZh": "現場面試循環", "estimatedDuration": "45 分鐘 × 4–5", "format": "onsite", "difficulty": 5, "questionTypes": ["Coding 現場", "系統設計", "領域深問（GPU / 平行運算）", "行為題"], "prepTips": ["準備平行運算或效能最佳化相關經驗", "練習在共編環境邊思考邊解題", "複習同步、鎖與記憶體模型"], "interviewerRole": "SWE / Senior SWE / Tech Lead" },
+      { "order": 4, "name": "Hiring Manager & Team Fit", "nameZh": "主管與團隊媒合", "estimatedDuration": "45 分鐘", "format": "video", "difficulty": 3, "questionTypes": ["過去專案深問", "團隊合作", "職涯規劃"], "prepTips": ["深入準備 1–2 個代表性技術專案", "展現對 NVIDIA 技術領域的熱情", "準備反問題（團隊技術方向、產品路線）"], "interviewerRole": "Engineering Manager" }
+    ]
+  },
+  {
+    "id": "microsoft-taiwan-se",
+    "companySlug": "microsoft-taiwan",
+    "roleSlug": "software-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2025-08", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "Recruiter Screen", "nameZh": "招募者初篩", "estimatedDuration": "30 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["背景確認", "流程說明", "團隊媒合"], "prepTips": ["了解目標部門與產品", "準備英文溝通", "確認職等（IC level）期望"], "interviewerRole": "Recruiter" },
+      { "order": 2, "name": "Technical Phone Screen", "nameZh": "技術電話面試", "estimatedDuration": "60 分鐘", "format": "video", "difficulty": 3, "questionTypes": ["演算法與資料結構", "Coding", "需求澄清能力"], "prepTips": ["練習 LeetCode Medium", "重視程式碼可讀性與測試", "養成先釐清需求再動手的習慣"], "interviewerRole": "Software Engineer" },
+      { "order": 3, "name": "Onsite Loop（含 As Appropriate 輪）", "nameZh": "現場面試循環（含 AA 輪）", "estimatedDuration": "45–60 分鐘 × 4", "format": "onsite", "difficulty": 5, "questionTypes": ["Coding", "Object / System Design", "行為題（成長心態）", "AA 跨團隊評估輪"], "prepTips": ["準備 System Design（可擴展性、API、資料儲存）", "熟悉 Microsoft 成長心態（Growth Mindset）文化", "AA 輪由資深主管評估整體適配，著重思考過程"], "interviewerRole": "SWE / Senior SWE / Hiring Manager" },
+      { "order": 4, "name": "Hiring Manager / Offer", "nameZh": "主管面試 / Offer", "estimatedDuration": "30–45 分鐘", "format": "video", "difficulty": 2, "questionTypes": ["團隊媒合", "職涯期望", "Offer 與職等確認"], "prepTips": ["確認 team / charter 方向", "準備職涯規劃說明", "確認 Offer 結構（base / bonus / stock）"], "interviewerRole": "Hiring Manager / HR" }
+    ]
+  },
+  {
+    "id": "dcard-be",
+    "companySlug": "dcard",
+    "roleSlug": "backend-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2025-08", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "Resume & HR Screen", "nameZh": "履歷審查 & HR 初篩", "estimatedDuration": "30 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["背景確認", "技術棧匹配", "工作動機"], "prepTips": ["履歷凸顯 Go 與後端服務經驗", "了解 Dcard 技術棧（Go、Kubernetes、GCP）", "說明對社群產品的興趣"], "interviewerRole": "HR / Recruiter" },
+      { "order": 2, "name": "Online Coding Test", "nameZh": "線上程式測驗", "estimatedDuration": "90 分鐘", "format": "async", "difficulty": 3, "questionTypes": ["演算法", "資料結構", "後端實作題"], "prepTips": ["練習 LeetCode Medium", "熟悉 HTTP / REST 與並發概念", "注重程式碼結構與邊界處理"], "interviewerRole": "系統自動批改" },
+      { "order": 3, "name": "Technical Interview", "nameZh": "技術面試", "estimatedDuration": "60 分鐘", "format": "video", "difficulty": 4, "questionTypes": ["Go 語言深問", "系統設計", "資料庫設計", "API 設計"], "prepTips": ["深入理解 Go 並發（goroutine、channel）", "準備高流量服務設計案例", "熟悉 PostgreSQL / Redis 與快取策略"], "interviewerRole": "Senior Backend Engineer" },
+      { "order": 4, "name": "Manager / Culture Interview", "nameZh": "主管 / 文化面試", "estimatedDuration": "45 分鐘", "format": "video", "difficulty": 2, "questionTypes": ["過去專案", "團隊協作", "產品思維"], "prepTips": ["展現對產品與使用者的關注", "準備跨團隊合作案例", "了解 Dcard 工程文化（小團隊、高自主）"], "interviewerRole": "Engineering Manager" }
+    ]
+  },
+  {
+    "id": "cathay-digital-de",
+    "companySlug": "cathay-digital",
+    "roleSlug": "data-engineer",
+    "source": { "count": 0, "hasUserReports": false, "isInferred": false, "lastUpdated": "2025-08", "confidenceScore": 0 },
+    "stages": [
+      { "order": 1, "name": "HR Screening", "nameZh": "HR 初篩", "estimatedDuration": "30 分鐘", "format": "phone", "difficulty": 1, "questionTypes": ["背景確認", "工作動機", "薪資期望"], "prepTips": ["了解國泰數數發（數位數據暨科技發展中心）的定位", "說明對金融科技資料的興趣", "準備轉職 / 動機說明"], "interviewerRole": "HR" },
+      { "order": 2, "name": "Data Skills Assessment", "nameZh": "資料技能評測", "estimatedDuration": "60 分鐘", "format": "async", "difficulty": 3, "questionTypes": ["SQL 查詢", "Python 資料處理", "資料邏輯題"], "prepTips": ["練習進階 SQL（JOIN、Window Function）", "熟悉 Pandas 資料清理與轉換", "複習 ETL 流程概念"], "interviewerRole": "系統自動批改" },
+      { "order": 3, "name": "Technical Interview", "nameZh": "技術面試", "estimatedDuration": "60 分鐘", "format": "onsite", "difficulty": 4, "questionTypes": ["資料管道設計", "資料倉儲 / 資料湖", "金融資料治理", "過去專案"], "prepTips": ["準備一個完整的資料管道專案案例", "了解金融業資料合規與治理需求", "熟悉雲端資料服務與 Spark / Airflow"], "interviewerRole": "Senior Data Engineer / Tech Lead" },
+      { "order": 4, "name": "Manager & Culture Interview", "nameZh": "主管 & 文化面試", "estimatedDuration": "45 分鐘", "format": "onsite", "difficulty": 2, "questionTypes": ["行為題", "跨部門合作", "職涯規劃"], "prepTips": ["準備與業務 / 風控部門合作的案例", "展現資料驅動決策思維", "了解金控企業文化與穩定性"], "interviewerRole": "Data Team Manager" }
+    ]
+  }
+]

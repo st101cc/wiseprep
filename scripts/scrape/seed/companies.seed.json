@@ -1,0 +1,63 @@
+{
+  "_comment": "Seed list for the company scraper. `searchName` (or pinned `qid`) is resolved against Wikidata to pull REAL canonical names, industry, HQ, website and founding year. The other fields (industry/companyType/location/commonRoles) are fallbacks used only when Wikidata can't confidently supply them. `commonRoles` is always curated here (not on Wikidata). Re-run with `npm run scrape:companies`.",
+  "companies": [
+    { "slug": "tsmc", "searchName": "TSMC", "qid": "Q713418", "name": "台積電", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹", "台中", "台南"], "commonRoles": ["firmware-engineer", "hardware-engineer", "software-engineer"] },
+    { "slug": "mediatek", "searchName": "MediaTek", "name": "聯發科", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹", "台北"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "umc", "searchName": "United Microelectronics Corporation", "name": "聯電", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "ase", "searchName": "ASE Group", "name": "日月光", "industry": "semiconductor", "companyType": "semiconductor", "location": ["高雄"], "commonRoles": ["hardware-engineer", "firmware-engineer"] },
+    { "slug": "realtek", "searchName": "Realtek", "name": "瑞昱", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "novatek", "searchName": "Novatek Microelectronics", "name": "聯詠", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹"], "commonRoles": ["hardware-engineer", "firmware-engineer"] },
+    { "slug": "phison", "searchName": "Phison Electronics", "name": "群聯", "industry": "semiconductor", "companyType": "semiconductor", "location": ["苗栗"], "commonRoles": ["firmware-engineer", "hardware-engineer"] },
+    { "slug": "nvidia-taiwan", "searchName": "Nvidia", "name": "NVIDIA Taiwan", "industry": "semiconductor", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "hardware-engineer", "ml-engineer"] },
+    { "slug": "amd-taiwan", "searchName": "AMD", "name": "AMD Taiwan", "industry": "semiconductor", "companyType": "foreign", "location": ["台北"], "commonRoles": ["hardware-engineer", "software-engineer"] },
+    { "slug": "synopsys-taiwan", "searchName": "Synopsys", "name": "Synopsys Taiwan", "industry": "semiconductor", "companyType": "foreign", "location": ["新竹"], "commonRoles": ["software-engineer", "hardware-engineer"] },
+    { "slug": "micron-taiwan", "searchName": "Micron Technology", "name": "Micron Taiwan", "industry": "semiconductor", "companyType": "foreign", "location": ["台中", "桃園"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "alchip", "searchName": "Alchip Technologies", "name": "世芯-KY", "industry": "semiconductor", "companyType": "semiconductor", "location": ["台北"], "commonRoles": ["hardware-engineer", "firmware-engineer"] },
+
+    { "slug": "google-taiwan", "searchName": "Google", "name": "Google Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北", "新北"], "commonRoles": ["software-engineer", "data-engineer", "ml-engineer"] },
+    { "slug": "meta-taiwan", "searchName": "Meta Platforms", "name": "Meta Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "ml-engineer", "data-engineer"] },
+    { "slug": "aws-taiwan", "searchName": "Amazon Web Services", "name": "AWS Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "devops-sre", "data-engineer"] },
+    { "slug": "microsoft-taiwan", "searchName": "Microsoft", "name": "Microsoft Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "data-engineer", "ml-engineer"] },
+    { "slug": "apple-taiwan", "searchName": "Apple Inc.", "name": "Apple Taiwan", "industry": "hardware", "companyType": "foreign", "location": ["台北", "新北"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "line-taiwan", "searchName": "LINE Corporation", "name": "LINE Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["backend-engineer", "frontend-engineer", "data-engineer"] },
+    { "slug": "shopee-taiwan", "searchName": "Shopee", "name": "Shopee Taiwan", "industry": "ecommerce", "companyType": "foreign", "location": ["台北"], "commonRoles": ["data-engineer", "backend-engineer", "software-engineer"] },
+    { "slug": "coupang", "searchName": "Coupang", "name": "Coupang", "industry": "ecommerce", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "backend-engineer", "data-engineer"] },
+    { "slug": "oracle-taiwan", "searchName": "Oracle Corporation", "name": "Oracle Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "backend-engineer", "devops-sre"] },
+    { "slug": "cisco-taiwan", "searchName": "Cisco", "name": "Cisco Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "devops-sre", "security-engineer"] },
+
+    { "slug": "trend-micro", "searchName": "Trend Micro", "name": "趨勢科技", "industry": "software", "companyType": "listed", "location": ["台北"], "commonRoles": ["software-engineer", "backend-engineer", "security-engineer", "devops-sre"] },
+    { "slug": "appier", "searchName": "Appier", "name": "Appier", "industry": "ai", "companyType": "listed", "location": ["台北"], "commonRoles": ["ml-engineer", "data-engineer", "backend-engineer"] },
+    { "slug": "91app", "searchName": "91APP", "name": "91APP", "industry": "ecommerce", "companyType": "listed", "location": ["台北"], "commonRoles": ["frontend-engineer", "backend-engineer", "software-engineer"] },
+    { "slug": "shopline", "searchName": "SHOPLINE", "name": "SHOPLINE", "industry": "ecommerce", "companyType": "startup", "location": ["台北"], "commonRoles": ["frontend-engineer", "backend-engineer", "product-manager"] },
+    { "slug": "ikala", "searchName": "iKala", "name": "iKala", "industry": "ai", "companyType": "startup", "location": ["台北"], "commonRoles": ["ml-engineer", "backend-engineer", "data-engineer"] },
+    { "slug": "dcard", "searchName": "Dcard", "name": "Dcard", "industry": "software", "companyType": "startup", "location": ["台北"], "commonRoles": ["backend-engineer", "frontend-engineer", "data-engineer"] },
+    { "slug": "pinkoi", "searchName": "Pinkoi", "name": "Pinkoi", "industry": "ecommerce", "companyType": "startup", "location": ["台北"], "commonRoles": ["frontend-engineer", "backend-engineer", "ux-designer"] },
+    { "slug": "kkday", "searchName": "KKday", "name": "KKday", "industry": "software", "companyType": "startup", "location": ["台北"], "commonRoles": ["backend-engineer", "frontend-engineer", "product-manager"] },
+    { "slug": "gogolook", "searchName": "Gogolook", "name": "Gogolook", "industry": "software", "companyType": "startup", "location": ["台北"], "commonRoles": ["backend-engineer", "ml-engineer", "product-manager"] },
+    { "slug": "kkcompany", "searchName": "KKCompany", "name": "KKCompany", "industry": "software", "companyType": "listed", "location": ["台北"], "commonRoles": ["backend-engineer", "frontend-engineer", "data-engineer"] },
+
+    { "slug": "asus", "searchName": "Asus", "name": "ASUS", "industry": "hardware", "companyType": "listed", "location": ["台北"], "commonRoles": ["frontend-engineer", "software-engineer", "hardware-engineer"] },
+    { "slug": "acer", "searchName": "Acer Inc.", "name": "宏碁", "industry": "hardware", "companyType": "listed", "location": ["新北"], "commonRoles": ["software-engineer", "hardware-engineer", "frontend-engineer"] },
+    { "slug": "msi", "searchName": "Micro-Star International", "name": "微星", "industry": "hardware", "companyType": "listed", "location": ["新北"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "gigabyte", "searchName": "Gigabyte Technology", "name": "技嘉", "industry": "hardware", "companyType": "listed", "location": ["新北"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "gogoro", "searchName": "Gogoro", "name": "Gogoro", "industry": "hardware", "companyType": "listed", "location": ["桃園", "台北"], "commonRoles": ["firmware-engineer", "software-engineer", "hardware-engineer"] },
+    { "slug": "foxconn", "searchName": "Foxconn", "name": "鴻海", "industry": "hardware", "companyType": "listed", "location": ["新北"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "quanta", "searchName": "Quanta Computer", "name": "廣達", "industry": "hardware", "companyType": "listed", "location": ["桃園"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "delta-electronics", "searchName": "Delta Electronics", "name": "台達電", "industry": "hardware", "companyType": "listed", "location": ["桃園", "台北"], "commonRoles": ["firmware-engineer", "hardware-engineer", "software-engineer"] },
+    { "slug": "advantech", "searchName": "Advantech", "name": "研華", "industry": "hardware", "companyType": "listed", "location": ["台北"], "commonRoles": ["firmware-engineer", "software-engineer", "hardware-engineer"] },
+
+    { "slug": "esun-digital", "searchName": "E.SUN Commercial Bank", "name": "玉山銀行數位金融", "industry": "fintech", "companyType": "listed", "location": ["台北"], "commonRoles": ["backend-engineer", "data-engineer", "security-engineer"] },
+    { "slug": "cathay-digital", "searchName": "Cathay Financial Holding", "name": "國泰數數發", "industry": "fintech", "companyType": "listed", "location": ["台北"], "commonRoles": ["data-engineer", "backend-engineer", "ml-engineer"] },
+    { "slug": "maicoin", "searchName": "MaiCoin", "name": "MaiCoin", "industry": "fintech", "companyType": "startup", "location": ["台北"], "commonRoles": ["backend-engineer", "frontend-engineer", "security-engineer"] },
+    { "slug": "bitopro", "searchName": "BitoPro", "name": "BitoPro", "industry": "fintech", "companyType": "startup", "location": ["台北"], "commonRoles": ["backend-engineer", "security-engineer", "frontend-engineer"] },
+
+    { "slug": "cycraft", "searchName": "CyCraft", "name": "CyCraft", "industry": "software", "companyType": "startup", "location": ["新北"], "commonRoles": ["security-engineer", "ml-engineer", "backend-engineer"] },
+    { "slug": "teamt5", "searchName": "TeamT5", "name": "杜浦數位安全", "industry": "software", "companyType": "startup", "location": ["台北"], "commonRoles": ["security-engineer", "backend-engineer"] },
+    { "slug": "txone", "searchName": "TXOne Networks", "name": "睿控網安", "industry": "software", "companyType": "startup", "location": ["台北"], "commonRoles": ["security-engineer", "firmware-engineer", "backend-engineer"] },
+
+    { "slug": "pchome", "searchName": "PChome Online", "name": "PChome", "industry": "ecommerce", "companyType": "listed", "location": ["台北"], "commonRoles": ["backend-engineer", "frontend-engineer", "data-engineer"] },
+    { "slug": "momo", "searchName": "momo.com", "name": "momo購物網", "industry": "ecommerce", "companyType": "listed", "location": ["台北"], "commonRoles": ["backend-engineer", "frontend-engineer", "data-engineer"] },
+    { "slug": "foodpanda-taiwan", "searchName": "Foodpanda", "name": "foodpanda Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["backend-engineer", "data-engineer", "product-manager"] },
+    { "slug": "uber-taiwan", "searchName": "Uber", "name": "Uber Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "data-engineer", "backend-engineer"] }
+  ]
+}
