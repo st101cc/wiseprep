@@ -2,7 +2,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Target, CalendarDays, CheckSquare, Square, PlusCircle, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
-import TargetPanel, { FALLBACK_STAGES } from '@/components/target-panel'
+import TargetPanel from '@/components/target-panel'
+import { FALLBACK_STAGES } from '@/lib/fallback-stages'
 import BackButton from '@/components/back-button'
 import NextStepPanel from '@/components/next-step-panel'
 import { useTargets } from '@/lib/use-targets'
@@ -29,7 +30,16 @@ const WEEK_DAYS = ['一', '二', '三', '四', '五', '六', '日']
 const MONTH_NAMES = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 
 export default function DashboardPage() {
-  const { targets, removeTarget, toggleStage, setDate, setStageDate, setStageNote, setStatus, isTaskDone, toggleTaskDone } = useTargets()
+  const { targets, addCustomTarget, removeTarget, toggleStage, setDate, setStageDate, setStageNote, setStatus, isTaskDone, toggleTaskDone } = useTargets()
+  const [customCompany, setCustomCompany] = useState('')
+  const [customRole, setCustomRole] = useState('')
+  const canAddCustom = customCompany.trim() !== '' && customRole.trim() !== ''
+  const submitCustom = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!canAddCustom) return
+    addCustomTarget(customCompany, customRole)
+    setCustomCompany(''); setCustomRole('')
+  }
   const [statusFilter, setStatusFilter] = useState<ApplicationStatus | 'all'>('all')
   const visibleTargets = statusFilter === 'all' ? targets : targets.filter(t => statusOf(t) === statusFilter)
   const statusCounts = targets.reduce<Partial<Record<ApplicationStatus, number>>>((acc, t) => {
@@ -50,7 +60,7 @@ export default function DashboardPage() {
     if (nextIdx === -1) return [] // all stages cleared
     const stage = flow.stages[nextIdx]
     if (!stage) return []
-    const companyName = getCompanyBySlug(t.companySlug)?.name ?? t.companySlug
+    const companyName = t.companyName ?? getCompanyBySlug(t.companySlug)?.name ?? t.companySlug
     return stage.prepTips.map((tip, ti) => ({
       key: `${t.companySlug}-${t.roleSlug}-${stage.order}-${ti}`,
       company: companyName,
@@ -92,7 +102,7 @@ export default function DashboardPage() {
       if (y !== calYear || m - 1 !== calMonth) return
       calEvents[d] = [...(calEvents[d] ?? []), { type, label }]
     }
-    const cName = getCompanyBySlug(t.companySlug)?.name ?? t.companySlug
+    const cName = t.companyName ?? getCompanyBySlug(t.companySlug)?.name ?? t.companySlug
     addEvent(t.interviewDate, 'interview', `${cName} 面試`)
     addEvent(t.nextRoundDate, 'next', `${cName} 下一關`)
     const stages = getInterviewFlow(t.companySlug, t.roleSlug)?.stages
@@ -122,6 +132,29 @@ export default function DashboardPage() {
       </div>
 
       <NextStepPanel />
+
+      {/* Custom target: company/role not in the dataset, tracked with the generic 5-stage flow */}
+      <form onSubmit={submitCustom} className="rounded-xl border border-slate-200 bg-white p-4 flex flex-col sm:flex-row sm:items-end gap-3">
+        <div className="flex-1 space-y-1">
+          <label htmlFor="custom-company" className="text-xs font-medium text-slate-500">公司名稱</label>
+          <input id="custom-company" required value={customCompany} onChange={e => setCustomCompany(e.target.value)}
+            placeholder="例如：某新創公司" maxLength={100}
+            className="w-full border border-slate-200 rounded-md px-2.5 py-1.5 text-sm text-slate-700 placeholder:text-slate-300 focus:outline-none focus:ring-1 focus:ring-indigo-400" />
+        </div>
+        <div className="flex-1 space-y-1">
+          <label htmlFor="custom-role" className="text-xs font-medium text-slate-500">職缺名稱</label>
+          <input id="custom-role" required value={customRole} onChange={e => setCustomRole(e.target.value)}
+            placeholder="例如：後端工程師" maxLength={100}
+            className="w-full border border-slate-200 rounded-md px-2.5 py-1.5 text-sm text-slate-700 placeholder:text-slate-300 focus:outline-none focus:ring-1 focus:ring-indigo-400" />
+        </div>
+        <button type="submit" disabled={!canAddCustom}
+          className={cn(
+            'inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors',
+            canAddCustom ? 'bg-indigo-600 text-white hover:bg-indigo-500' : 'bg-slate-100 text-slate-400 cursor-not-allowed',
+          )}>
+          <PlusCircle className="w-4 h-4" /> 新增自訂目標
+        </button>
+      </form>
 
       {/* Target panels */}
       {targets.length === 0 ? (

@@ -4,6 +4,7 @@ import { getInterviewFlow } from './mock-data'
 import { saveLocal } from './cloud-state'
 import { formatAddedDate } from './added-date'
 import { setAligned } from './stage-fields'
+import { FALLBACK_STAGES } from './fallback-stages'
 import type { ApplicationStatus } from './application-status'
 
 export type { ApplicationStatus } from './application-status'
@@ -20,6 +21,9 @@ export interface TargetEntry {
   addedAt: string
   status?: ApplicationStatus  // missing on older entries -> treated as 'wishlist'
   statusChangedAt?: string    // 'YYYY-MM-DD' local date of the last status change
+  custom?: boolean            // user-entered company/role, not in the dataset; slugs are 'custom-<id>'
+  companyName?: string        // custom targets only
+  roleName?: string           // custom targets only
 }
 
 const KEY = 'wiseprep_targets' as const
@@ -66,7 +70,19 @@ export function useTargets() {
     }])
   }
 
-  const removeTarget = (companySlug: string, roleSlug: string) =>
+  const addCustomTarget = (companyName: string, roleName: string) => {
+    const c = companyName.trim(), r = roleName.trim()
+    if (!c || !r) return
+    const slug = `custom-${Math.random().toString(36).slice(2, 10)}`
+    persist([...targets, {
+      companySlug: slug, roleSlug: slug,
+      custom: true, companyName: c, roleName: r,
+      stageCompletions: new Array(FALLBACK_STAGES.length).fill(false),
+      addedAt: new Date().toISOString(),
+    }])
+  }
+
+  const removeTarget =(companySlug: string, roleSlug: string) =>
     persist(targets.filter(t => !(t.companySlug === companySlug && t.roleSlug === roleSlug)))
 
   const toggleStage = (companySlug: string, roleSlug: string, i: number) =>
@@ -115,5 +131,5 @@ export function useTargets() {
         : t
     ))
 
-  return { targets, isTarget, addTarget, removeTarget, toggleStage, setDate, setStageDate, setStageNote, setStatus, isTaskDone, toggleTaskDone }
+  return { targets, isTarget, addTarget, addCustomTarget, removeTarget, toggleStage, setDate, setStageDate, setStageNote, setStatus, isTaskDone, toggleTaskDone }
 }
