@@ -21,14 +21,14 @@ interface Props {
   onRemove: () => void
 }
 
-function daysFrom(dateStr?: string): number | null {
+export function daysFrom(dateStr?: string): number | null {
   if (!dateStr) return null
   const today = new Date(); today.setHours(0, 0, 0, 0)
   const d = new Date(dateStr); d.setHours(0, 0, 0, 0)
   return Math.round((d.getTime() - today.getTime()) / 86400000)
 }
 
-function DaysChip({ days }: { days: number }) {
+export function DaysChip({ days }: { days: number }) {
   const cls =
     days < 0 ? 'bg-slate-100 text-slate-500' :
     days === 0 ? 'bg-orange-100 text-orange-600' :
