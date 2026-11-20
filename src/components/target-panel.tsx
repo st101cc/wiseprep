@@ -5,6 +5,7 @@ import { Building2, X, ArrowRight, CalendarDays, RefreshCw, ChevronDown, Chevron
 import { CheckCircle2, Circle } from 'lucide-react'
 import { getCompanyBySlug, getRoleBySlug, getInterviewFlow } from '@/lib/mock-data'
 import type { TargetEntry } from '@/lib/use-targets'
+import { formatAddedDate } from '@/lib/added-date'
 
 const FALLBACK_STAGES = ['HR 電話初篩', '線上程式測驗', '技術面試', '行為面試', '最終現場面試']
 
@@ -46,6 +47,7 @@ export default function TargetPanel({ entry, onToggleStage, onSetDate, onRemove 
   const pct = total > 0 ? Math.round((done / total) * 100) : 0
   const intDays = daysFrom(entry.interviewDate)
   const nxtDays = daysFrom(entry.nextRoundDate)
+  const addedDate = formatAddedDate(entry.addedAt)
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-5 flex flex-col gap-4">
@@ -58,6 +60,7 @@ export default function TargetPanel({ entry, onToggleStage, onSetDate, onRemove 
           <div className="min-w-0">
             <p className="font-semibold text-slate-800 truncate">{company?.name ?? entry.companySlug}</p>
             <p className="text-xs text-slate-500 mt-0.5 truncate">{role?.titleZh ?? entry.roleSlug}</p>
+            {addedDate && <p className="text-xs text-slate-400 mt-0.5">加入於 {addedDate}</p>}
           </div>
         </div>
         <button onClick={onRemove} className="text-slate-300 hover:text-red-400 transition-colors flex-shrink-0 mt-1">
