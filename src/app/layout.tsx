@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_TC } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
+import CloudSync from '@/components/cloud-sync'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const notoSansTC = Noto_Sans_TC({ subsets: ['latin'], variable: '--font-noto-sans-tc', weight: ['400', '500', '700'] })
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="zh-TW">
       <body className={`${inter.variable} ${notoSansTC.variable} font-sans antialiased bg-white`}>
+        <CloudSync />
         <Navbar />
         <main>{children}</main>
         <Footer />

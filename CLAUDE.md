@@ -13,15 +13,19 @@ npm start        # Start production server (after build)
 
 ## Architecture
 
-**WisePrep** is a static Next.js 14 (App Router) prototype — a bilingual (zh-TW/EN) interview prep platform for Taiwan's tech sector. There is no backend, no API routes, and no database. Content lives in versioned JSON under `src/data/`, surfaced through `src/lib/mock-data.ts`.
+**WisePrep** is a static Next.js 14 (App Router) prototype — a bilingual (zh-TW/EN) interview prep platform for Taiwan's tech sector. Content lives in versioned JSON under `src/data/`, surfaced through `src/lib/mock-data.ts`. Server code: `/api/next-step` (LLM analysis), `/api/google/*` + `/api/calendar/sync` (Google Calendar) and `/api/parse-cv` (CV upload → text via `unpdf`, PDF/TXT/MD, nothing stored); user state is localStorage-first, mirrored to Supabase when logged in.
 
 ### Data layer
 
 - **`src/lib/types.ts`** — All TypeScript interfaces: `Company`, `Role`, `InterviewFlow`, `InterviewStage`. Read this first when touching any data shape.
-- **`src/data/companies.json`** — 52 companies. **Generated, do not hand-edit** — run `npm run scrape:companies` (Wikidata-sourced: canonical zh/en names, industry, HQ, website, founding year). Edit the seed at `scripts/scrape/seed/companies.seed.json` instead, then re-scrape.
-- **`src/data/roles.json`** — 12-role curated taxonomy (hand-edited).
+- **`src/data/companies.json`** — 53 companies. **Generated, do not hand-edit** — run `npm run scrape:companies` (Wikidata-sourced: canonical zh/en names, industry, HQ, website, founding year). Edit the seed at `scripts/scrape/seed/companies.seed.json` instead, then re-scrape.
+- **`src/data/roles.json`** — 13-role curated taxonomy (hand-edited).
 - **`src/data/interview-flows.json`** — Curated interview flows (hand-edited). No ToS-permitting bulk source exists for interview-process data, so these stay curated; `interviewDataCount`/`confidenceScore`/`hasUserReports` on each company are *derived from these flows* by the scraper.
 - **`src/lib/mock-data.ts`** — Imports the three JSON files, casts to typed arrays, exposes helpers (`getCompanyBySlug`, `getRoleBySlug`, `getInterviewFlow`, `getFlowsForCompany`, `getFlowsForRole`). Same API as before the JSON migration.
+- **`InterviewFlow.compensation`** (optional) — sourced salary band + target band per company×role, rendered by `components/compensation-card.tsx` with a private (localStorage-only) offer calculator. Math lives in `src/lib/compensation.ts`; check with `node --experimental-strip-types src/lib/compensation.check.ts` (`*.check.ts` is excluded from tsconfig).
+- **Auth + sync** — Supabase email magic link (`/profile`). `src/lib/cloud-state.ts`: `saveLocal()` writes localStorage and pushes the synced keys to `profiles.state` (one jsonb row per user, RLS-scoped; schema in `scripts/supabase/schema.sql`); `components/cloud-sync.tsx` pulls the account copy on load/sign-in if newer.
+- **`/api/next-step`** — verifies the Supabase token, reads the caller's profile, builds the prompt (`src/lib/next-step.ts`) and calls any OpenAI-compatible endpoint via `LLM_BASE_URL` / `LLM_API_KEY` / `LLM_MODEL` / `LLM_FALLBACK_MODEL` (server-only env; falls back on 429/5xx).
+- **Google Calendar sync** — `/profile` connects Google (scope `calendar.app.created`: only the app-created "WisePrep" calendar). `src/lib/calendar-events.ts` (pure, check: `node --experimental-strip-types src/lib/calendar-events.check.ts`) turns targets into all-day round events + 3 evening prep blocks; `src/lib/google-calendar.ts` does OAuth/REST via fetch, AES-GCM-encrypted refresh token in Supabase `google_calendar`, idempotent sync (deterministic event ids, deletes stale future events). Routes: `/api/google/{connect,exchange,disconnect}`, `/api/calendar/sync`; target changes auto-sync via `saveLocal` when connected. Env: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_TOKEN_KEY`. Auth helper for all routes: `src/lib/server-auth.ts` `requireUser()`.
 - **`src/lib/utils.ts`** — Only exports `cn()` (clsx + tailwind-merge).
 
 ### Scraper (`scripts/scrape/`)

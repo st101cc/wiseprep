@@ -3,7 +3,7 @@
   "companies": [
     { "slug": "tsmc", "searchName": "TSMC", "qid": "Q713418", "name": "台積電", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹", "台中", "台南"], "commonRoles": ["firmware-engineer", "hardware-engineer", "software-engineer"] },
     { "slug": "mediatek", "searchName": "MediaTek", "name": "聯發科", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹", "台北"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
-    { "slug": "umc", "searchName": "United Microelectronics Corporation", "name": "聯電", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
+    { "slug": "umc", "searchName": "United Microelectronics Corporation", "qid": "Q143616", "name": "聯電", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
     { "slug": "ase", "searchName": "ASE Group", "name": "日月光", "industry": "semiconductor", "companyType": "semiconductor", "location": ["高雄"], "commonRoles": ["hardware-engineer", "firmware-engineer"] },
     { "slug": "realtek", "searchName": "Realtek", "name": "瑞昱", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
     { "slug": "novatek", "searchName": "Novatek Microelectronics", "name": "聯詠", "industry": "semiconductor", "companyType": "semiconductor", "location": ["新竹"], "commonRoles": ["hardware-engineer", "firmware-engineer"] },
@@ -20,6 +20,7 @@
     { "slug": "microsoft-taiwan", "searchName": "Microsoft", "name": "Microsoft Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "data-engineer", "ml-engineer"] },
     { "slug": "apple-taiwan", "searchName": "Apple Inc.", "name": "Apple Taiwan", "industry": "hardware", "companyType": "foreign", "location": ["台北", "新北"], "commonRoles": ["hardware-engineer", "firmware-engineer", "software-engineer"] },
     { "slug": "line-taiwan", "searchName": "LINE Corporation", "name": "LINE Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["backend-engineer", "frontend-engineer", "data-engineer"] },
+    { "slug": "bcg-x-taiwan", "searchName": "Boston Consulting Group", "name": "BCG X 台灣", "industry": "consulting", "companyType": "foreign", "location": ["台北"], "commonRoles": ["forward-deployed-ai-engineer", "ml-engineer"] },
     { "slug": "shopee-taiwan", "searchName": "Shopee", "name": "Shopee Taiwan", "industry": "ecommerce", "companyType": "foreign", "location": ["台北"], "commonRoles": ["data-engineer", "backend-engineer", "software-engineer"] },
     { "slug": "coupang", "searchName": "Coupang", "name": "Coupang", "industry": "ecommerce", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "backend-engineer", "data-engineer"] },
     { "slug": "oracle-taiwan", "searchName": "Oracle Corporation", "name": "Oracle Taiwan", "industry": "software", "companyType": "foreign", "location": ["台北"], "commonRoles": ["software-engineer", "backend-engineer", "devops-sre"] },

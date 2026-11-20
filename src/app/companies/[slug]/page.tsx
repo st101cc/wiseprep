@@ -8,7 +8,8 @@ import InterviewFlowTimeline from '@/components/interview-flow-timeline'
 import ConfidenceIndicator from '@/components/confidence-indicator'
 import SetTargetButton from '@/components/set-target-button'
 import BackButton from '@/components/back-button'
-import { MapPin, ArrowRight, Building2, Globe, CalendarDays } from 'lucide-react'
+import CompensationCard from '@/components/compensation-card'
+import { MapPin, ArrowRight, Building2, Globe, CalendarDays, ExternalLink } from 'lucide-react'
 
 const typeLabel: Record<string, string> = {
   foreign: '外商', startup: '新創', listed: '上市櫃', semiconductor: '半導體'
@@ -111,6 +112,28 @@ export default function CompanyDetailPage({ params }: { params: { slug: string }
               companyName={company.name}
               roleTitle={activeRole?.titleZh}
             />
+            {activeFlow.source.references?.length ? (
+              <div className="rounded-xl border border-slate-200 bg-white p-4">
+                <p className="text-xs font-medium text-slate-500 mb-1.5">流程資料來源（推估，非公司官方）</p>
+                <ul className="space-y-1">
+                  {activeFlow.source.references.map(r => (
+                    <li key={r.url}>
+                      <a href={r.url} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-indigo-600 hover:underline">
+                        {r.title}<ExternalLink className="w-3 h-3" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {activeFlow.compensation && (
+              <CompensationCard
+                comp={activeFlow.compensation}
+                companyName={company.name}
+                roleTitle={activeRole?.title ?? activeRoleSlug}
+              />
+            )}
           </>
         ) : (
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-800 text-sm text-center">

@@ -1,4 +1,4 @@
-export type Industry = 'software' | 'semiconductor' | 'ecommerce' | 'fintech' | 'ai' | 'hardware'
+export type Industry = 'software' | 'semiconductor' | 'ecommerce' | 'fintech' | 'ai' | 'hardware' | 'consulting'
 export type CompanyType = 'foreign' | 'startup' | 'listed' | 'semiconductor'
 export type RoleCategory = 'engineering' | 'data' | 'ai' | 'product' | 'design' | 'semiconductor' | 'hardware' | 'security' | 'qa'
 export type InterviewFormat = 'phone' | 'video' | 'onsite' | 'async' | 'test'
@@ -55,5 +55,17 @@ export interface InterviewFlow {
     isInferred: boolean
     lastUpdated: string
     confidenceScore: number
+    references?: { title: string; url: string }[]
   }
+  compensation?: Compensation
+}
+
+export interface Compensation {
+  currency: 'TWD'
+  marketBand: { p25: number; p50: number; p75: number; p90: number; label: string } // annual total comp
+  targetBand: { low: number; high: number; note: string } // our estimate, not published by the company
+  structure: string[]
+  askRecruiter: string[]
+  sources: { title: string; url: string }[]
+  lastUpdated: string
 }

@@ -56,7 +56,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.umc.com/",
     "founded": 1980,
@@ -76,7 +76,7 @@
       "firmware-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://ase.aseglobal.com/",
     "founded": 1984,
@@ -97,7 +97,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.realtek.com/en/",
     "founded": 1987,
@@ -117,7 +117,7 @@
       "firmware-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "http://www.novatek.com.tw/",
     "founded": 1997,
@@ -137,7 +137,7 @@
       "hardware-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "http://www.phison.com/",
     "founded": 2000,
@@ -178,7 +178,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.amd.com/",
     "founded": 1969,
@@ -198,7 +198,7 @@
       "hardware-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.synopsys.com/",
     "founded": 1986,
@@ -220,7 +220,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.micron.com/",
     "founded": 1978,
@@ -240,7 +240,7 @@
       "firmware-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -270,8 +270,8 @@
   },
   {
     "slug": "meta-taiwan",
-    "name": "Meta Taiwan",
-    "nameEn": "Meta",
+    "name": "Meta Platforms",
+    "nameEn": "Meta Platforms",
     "industry": "software",
     "companyType": "foreign",
     "location": [
@@ -283,7 +283,7 @@
       "data-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.meta.com/",
     "founded": 2004,
@@ -304,7 +304,7 @@
       "data-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://aws.amazon.com/",
     "founded": 2006,
@@ -347,7 +347,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://apple.com/at/",
     "founded": 1976,
@@ -373,6 +373,26 @@
     "website": "https://line.me/",
     "founded": null,
     "wikidataId": "Q602471"
+  },
+  {
+    "slug": "bcg-x-taiwan",
+    "name": "波士頓咨詢公司",
+    "nameEn": "Boston Consulting Group",
+    "industry": "consulting",
+    "companyType": "foreign",
+    "location": [
+      "台北"
+    ],
+    "commonRoles": [
+      "forward-deployed-ai-engineer",
+      "ml-engineer"
+    ],
+    "interviewDataCount": 0,
+    "lastUpdated": "2026-11",
+    "hasUserReports": false,
+    "website": "https://www.bcg.com/",
+    "founded": 1963,
+    "wikidataId": "Q135635"
   },
   {
     "slug": "shopee-taiwan",
@@ -410,7 +430,7 @@
       "data-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.coupang.com/",
     "founded": 2010,
@@ -431,7 +451,7 @@
       "devops-sre"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.oracle.com/",
     "founded": 1977,
@@ -452,7 +472,7 @@
       "security-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.cisco.com/",
     "founded": 1984,
@@ -516,7 +536,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -537,7 +557,7 @@
       "product-manager"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.shopline.com/",
     "founded": 2013,
@@ -558,7 +578,7 @@
       "data-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -600,7 +620,7 @@
       "ux-designer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.pinkoi.com/",
     "founded": 2011,
@@ -621,7 +641,7 @@
       "product-manager"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.kkday.com",
     "founded": null,
@@ -642,7 +662,7 @@
       "product-manager"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -663,7 +683,7 @@
       "data-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -705,7 +725,7 @@
       "frontend-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -726,7 +746,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.msi.com/",
     "founded": 1986,
@@ -747,7 +767,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.gigabyte.com/",
     "founded": 1986,
@@ -768,7 +788,7 @@
       "hardware-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.gogoro.com/",
     "founded": 2011,
@@ -790,7 +810,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.foxconn.com/",
     "founded": 1974,
@@ -812,7 +832,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "http://www.quantatw.com/",
     "founded": 1988,
@@ -833,7 +853,7 @@
       "software-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "http://www.deltaww.com/",
     "founded": 1971,
@@ -854,7 +874,7 @@
       "hardware-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "http://www.advantech.com/",
     "founded": 1983,
@@ -875,7 +895,7 @@
       "security-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.esunbank.com.tw/",
     "founded": 1992,
@@ -917,7 +937,7 @@
       "security-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -938,7 +958,7 @@
       "frontend-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -959,7 +979,7 @@
       "backend-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -979,7 +999,7 @@
       "backend-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -1000,7 +1020,7 @@
       "backend-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -1021,7 +1041,7 @@
       "data-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "http://www.pchome.com.tw/",
     "founded": 1996,
@@ -1042,7 +1062,7 @@
       "data-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": null,
     "founded": null,
@@ -1063,7 +1083,7 @@
       "product-manager"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "http://www.foodpanda.com/",
     "founded": 2012,
@@ -1084,7 +1104,7 @@
       "backend-engineer"
     ],
     "interviewDataCount": 0,
-    "lastUpdated": "2026-06",
+    "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.uber.com/",
     "founded": 2009,

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Target, CalendarDays, CheckSquare, Square, PlusCircle, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
 import TargetPanel from '@/components/target-panel'
 import BackButton from '@/components/back-button'
+import NextStepPanel from '@/components/next-step-panel'
 import { useTargets } from '@/lib/use-targets'
 import { getInterviewFlow, getCompanyBySlug } from '@/lib/mock-data'
 import type { InterviewStage } from '@/lib/types'
@@ -102,6 +103,8 @@ export default function DashboardPage() {
           <PlusCircle className="w-4 h-4" /> 新增目標
         </Link>
       </div>
+
+      <NextStepPanel />
 
       {/* Target panels */}
       {targets.length === 0 ? (

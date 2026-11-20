@@ -3,6 +3,7 @@
 // to the curated seed value rather than guessing.
 
 const INDUSTRY_RULES = [
+  ['consulting', /management consult|strategy consult/i],
   ['semiconductor', /semiconductor|integrated circuit|foundry|fabless|wafer|\bIC\b|chipmaker/i],
   ['ai', /artificial intelligence|machine learning|deep learning|\bAI\b/i],
   ['fintech', /financial|fintech|\bbank|cryptocurrency|crypto|payment|insurance/i],

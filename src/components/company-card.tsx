@@ -11,6 +11,7 @@ const industryLabel: Record<string, { label: string; color: string }> = {
   fintech: { label: 'FinTech', color: 'bg-green-100 text-green-700' },
   ai: { label: 'AI', color: 'bg-pink-100 text-pink-700' },
   hardware: { label: '硬體', color: 'bg-slate-100 text-slate-700' },
+  consulting: { label: '顧問', color: 'bg-teal-100 text-teal-700' },
 }
 
 export default function CompanyCard({ company }: { company: Company }) {

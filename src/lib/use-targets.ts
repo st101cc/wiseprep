@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { getInterviewFlow } from './mock-data'
+import { saveLocal } from './cloud-state'
 
 export interface TargetEntry {
   companySlug: string
@@ -8,11 +9,12 @@ export interface TargetEntry {
   stageCompletions: boolean[]
   interviewDate?: string   // 'YYYY-MM-DD'
   nextRoundDate?: string   // 'YYYY-MM-DD'
+  stageDates?: (string | null)[] // per-stage 'YYYY-MM-DD' (tracker v2); calendar sync already reads it
   addedAt: string
 }
 
-const KEY = 'wiseprep_targets'
-const TASKS_KEY = 'wiseprep_tasks_done'
+const KEY = 'wiseprep_targets' as const
+const TASKS_KEY = 'wiseprep_tasks_done' as const
 
 export function useTargets() {
   const [targets, setTargets] = useState<TargetEntry[]>([])
@@ -29,7 +31,7 @@ export function useTargets() {
 
   const persist = (ts: TargetEntry[]) => {
     setTargets(ts)
-    try { localStorage.setItem(KEY, JSON.stringify(ts)) } catch {}
+    saveLocal(KEY, ts)
   }
 
   const isTaskDone = (key: string) => doneTaskKeys.has(key)
@@ -38,7 +40,7 @@ export function useTargets() {
     setDoneTaskKeys(prev => {
       const next = new Set(prev)
       next.has(key) ? next.delete(key) : next.add(key)
-      try { localStorage.setItem(TASKS_KEY, JSON.stringify(Array.from(next))) } catch {}
+      saveLocal(TASKS_KEY, Array.from(next))
       return next
     })
 
