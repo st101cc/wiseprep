@@ -1,14 +1,16 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { Target, CalendarDays, CheckSquare, Square, PlusCircle, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
-import TargetPanel from '@/components/target-panel'
+import { Target, CalendarDays, CheckSquare, Square, PlusCircle, ExternalLink, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react'
+import TargetPanel, { DaysChip, daysFrom } from '@/components/target-panel'
 import { FALLBACK_STAGES } from '@/lib/fallback-stages'
 import BackButton from '@/components/back-button'
 import NextStepPanel from '@/components/next-step-panel'
 import { useTargets } from '@/lib/use-targets'
-import { getInterviewFlow, getCompanyBySlug } from '@/lib/mock-data'
+import { getInterviewFlow, getCompanyBySlug, getRoleBySlug } from '@/lib/mock-data'
 import type { InterviewStage } from '@/lib/types'
+import { buildWeekPrep, type PrepGroup } from '@/lib/week-prep'
+import { localDateString } from '@/lib/stage-fields'
 import { APPLICATION_STATUSES, STATUS_LABELS, statusOf, type ApplicationStatus } from '@/lib/application-status'
 import { cn } from '@/lib/utils'
 
@@ -52,24 +54,14 @@ export default function DashboardPage() {
     ...APPLICATION_STATUSES.map(s => ({ key: s, label: STATUS_LABELS[s], count: statusCounts[s] ?? 0 })),
   ]
 
-  // Derive today's tasks from each target's NEXT incomplete interview stage
-  const tasks = targets.flatMap(t => {
-    const flow = getInterviewFlow(t.companySlug, t.roleSlug)
-    if (!flow) return []
-    const nextIdx = t.stageCompletions.findIndex(c => !c)
-    if (nextIdx === -1) return [] // all stages cleared
-    const stage = flow.stages[nextIdx]
-    if (!stage) return []
-    const companyName = t.companyName ?? getCompanyBySlug(t.companySlug)?.name ?? t.companySlug
-    return stage.prepTips.map((tip, ti) => ({
-      key: `${t.companySlug}-${t.roleSlug}-${stage.order}-${ti}`,
-      company: companyName,
-      stage: stage.nameZh,
-      label: tip,
-      resource: pickResource(stage, tip),
-    }))
-  })
-
+  // 本週準備: one group per active target, tasks = prep tips of its next open stage
+  const weekPrep = buildWeekPrep(targets, localDateString(), (c, r) => ({
+    companyName: getCompanyBySlug(c)?.name ?? c,
+    roleName: getRoleBySlug(r)?.titleZh ?? r,
+    stages: getInterviewFlow(c, r)?.stages ?? [],
+  }), FALLBACK_STAGES)
+  const [showLater, setShowLater] = useState(false)
+  const tasks = [...weekPrep.thisWeek, ...weekPrep.later].flatMap(g => g.tasks)
 
   // Calendar state — default to current month
   const now = new Date()
@@ -111,6 +103,43 @@ export default function DashboardPage() {
   })
 
   const tasksDone = tasks.filter(t => isTaskDone(t.key)).length
+
+  const renderGroup = (g: PrepGroup<InterviewStage>) => (
+    <div key={g.key} className="space-y-2">
+      <div>
+        <p className="text-xs font-semibold text-indigo-600 truncate">{g.company} · {g.role}</p>
+        <div className="flex items-center justify-between gap-2 text-xs mt-0.5">
+          <span className="text-slate-500 truncate">下個關卡：{g.stageName}</span>
+          {g.date && (
+            <span className="flex items-center gap-1.5 flex-shrink-0">
+              <span className="text-slate-400">{g.date}</span>
+              <DaysChip days={daysFrom(g.date) ?? 0} />
+            </span>
+          )}
+        </div>
+      </div>
+      {!g.stage ? (
+        <p className="text-xs text-slate-400">此目標沒有內建準備清單</p>
+      ) : g.tasks.map(t => {
+        const done = isTaskDone(t.key)
+        const resource = pickResource(g.stage as InterviewStage, t.label)
+        return (
+          <div key={t.key}>
+            <button onClick={() => toggleTaskDone(t.key)} className="w-full flex items-start gap-2.5 text-left group">
+              {done
+                ? <CheckSquare className="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                : <Square className="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />}
+              <span className={cn('text-sm', done ? 'line-through text-slate-400' : 'text-slate-700')}>{t.label}</span>
+            </button>
+            <a href={resource.url} target="_blank" rel="noopener noreferrer"
+              className="ml-6 mt-0.5 inline-flex items-center gap-1 text-xs text-indigo-500 hover:text-indigo-700 transition-colors">
+              <ExternalLink className="w-3 h-3" />{resource.title}
+            </a>
+          </div>
+        )
+      })}
+    </div>
+  )
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
@@ -308,47 +337,35 @@ export default function DashboardPage() {
           )}
         </div>
 
-        {/* Today's tasks — derived from each target's next interview stage */}
+        {/* 本週準備 — one group per active target, ordered by its next dated round */}
         <div className="lg:col-span-2 rounded-xl border border-slate-200 bg-white p-5 space-y-4">
           <h2 className="font-semibold text-slate-800 flex items-center gap-2">
-            <CalendarDays className="w-4 h-4" />今日任務
+            <CalendarDays className="w-4 h-4" />本週準備
           </h2>
-          {tasks.length === 0 ? (
+          {weekPrep.thisWeek.length + weekPrep.later.length === 0 ? (
             <p className="text-sm text-slate-400">
               {targets.length === 0
                 ? '加入目標後，這裡會依各公司的下一個面試關卡產生準備任務。'
-                : '目標的面試關卡都已完成，沒有待辦任務 🎉'}
+                : '目前沒有進行中的面試關卡，沒有待辦任務 🎉'}
             </p>
           ) : (
             <div className="space-y-4">
-              {Object.entries(
-                tasks.reduce<Record<string, typeof tasks>>((acc, t) => {
-                  const k = `${t.company} · ${t.stage}`
-                  ;(acc[k] ??= []).push(t)
-                  return acc
-                }, {})
-              ).map(([group, groupTasks]) => (
-                <div key={group} className="space-y-2">
-                  <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">{group}</p>
-                  {groupTasks.map(t => {
-                    const done = isTaskDone(t.key)
-                    return (
-                      <div key={t.key}>
-                        <button onClick={() => toggleTaskDone(t.key)} className="w-full flex items-start gap-2.5 text-left group">
-                          {done
-                            ? <CheckSquare className="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
-                            : <Square className="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />}
-                          <span className={`text-sm ${done ? 'line-through text-slate-400' : 'text-slate-700'}`}>{t.label}</span>
-                        </button>
-                        <a href={t.resource.url} target="_blank" rel="noopener noreferrer"
-                          className="ml-6 mt-0.5 inline-flex items-center gap-1 text-xs text-indigo-500 hover:text-indigo-700 transition-colors">
-                          <ExternalLink className="w-3 h-3" />{t.resource.title}
-                        </a>
-                      </div>
-                    )
-                  })}
+              <div className="space-y-4">
+                <p className="text-xs font-semibold text-slate-500">本週</p>
+                {weekPrep.thisWeek.length === 0
+                  ? <p className="text-sm text-slate-400">未來 7 天沒有排定的面試</p>
+                  : weekPrep.thisWeek.map(renderGroup)}
+              </div>
+              {weekPrep.later.length > 0 && (
+                <div className="space-y-4 border-t border-slate-100 pt-3">
+                  <button onClick={() => setShowLater(v => !v)}
+                    className="flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors">
+                    之後／未排定（{weekPrep.later.length}）
+                    {showLater ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                  </button>
+                  {showLater && weekPrep.later.map(renderGroup)}
                 </div>
-              ))}
+              )}
             </div>
           )}
           {tasks.length > 0 && (
