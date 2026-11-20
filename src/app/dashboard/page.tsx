@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Target, CalendarDays, CheckSquare, Square, PlusCircle, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
-import TargetPanel from '@/components/target-panel'
+import TargetPanel, { FALLBACK_STAGES } from '@/components/target-panel'
 import BackButton from '@/components/back-button'
 import NextStepPanel from '@/components/next-step-panel'
 import { useTargets } from '@/lib/use-targets'
@@ -29,7 +29,7 @@ const WEEK_DAYS = ['一', '二', '三', '四', '五', '六', '日']
 const MONTH_NAMES = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 
 export default function DashboardPage() {
-  const { targets, removeTarget, toggleStage, setDate, setStatus, isTaskDone, toggleTaskDone } = useTargets()
+  const { targets, removeTarget, toggleStage, setDate, setStageDate, setStageNote, setStatus, isTaskDone, toggleTaskDone } = useTargets()
   const [statusFilter, setStatusFilter] = useState<ApplicationStatus | 'all'>('all')
   const visibleTargets = statusFilter === 'all' ? targets : targets.filter(t => statusOf(t) === statusFilter)
   const statusCounts = targets.reduce<Partial<Record<ApplicationStatus, number>>>((acc, t) => {
@@ -82,10 +82,11 @@ export default function DashboardPage() {
   const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate()
 
   // Collect events for the displayed month
-  type CalEvent = { type: 'interview' | 'next'; label: string }
+  type CalEvent = { type: 'interview' | 'next' | 'stage'; label: string }
+  const CAL_DOT: Record<CalEvent['type'], string> = { interview: 'bg-orange-400', next: 'bg-sky-400', stage: 'bg-violet-400' }
   const calEvents: Record<number, CalEvent[]> = {}
   targets.forEach(t => {
-    const addEvent = (dateStr: string | undefined, type: CalEvent['type'], label: string) => {
+    const addEvent = (dateStr: string | null | undefined, type: CalEvent['type'], label: string) => {
       if (!dateStr) return
       const [y, m, d] = dateStr.split('-').map(Number)
       if (y !== calYear || m - 1 !== calMonth) return
@@ -94,6 +95,9 @@ export default function DashboardPage() {
     const cName = getCompanyBySlug(t.companySlug)?.name ?? t.companySlug
     addEvent(t.interviewDate, 'interview', `${cName} 面試`)
     addEvent(t.nextRoundDate, 'next', `${cName} 下一關`)
+    const stages = getInterviewFlow(t.companySlug, t.roleSlug)?.stages
+    t.stageDates?.forEach((d, i) =>
+      addEvent(d, 'stage', `${cName} ${stages?.[i]?.nameZh ?? FALLBACK_STAGES[i] ?? `關卡 ${i + 1}`}`))
   })
 
   const tasksDone = tasks.filter(t => isTaskDone(t.key)).length
@@ -171,6 +175,8 @@ export default function DashboardPage() {
                   entry={entry}
                   onToggleStage={i => toggleStage(entry.companySlug, entry.roleSlug, i)}
                   onSetDate={(field, date) => setDate(entry.companySlug, entry.roleSlug, field, date)}
+                  onSetStageDate={(i, date) => setStageDate(entry.companySlug, entry.roleSlug, i, date)}
+                  onSetStageNote={(i, note) => setStageNote(entry.companySlug, entry.roleSlug, i, note)}
                   onSetStatus={status => setStatus(entry.companySlug, entry.roleSlug, status)}
                   onRemove={() => removeTarget(entry.companySlug, entry.roleSlug)}
                 />
@@ -225,7 +231,7 @@ export default function DashboardPage() {
                         <span key={i}
                           className={`w-1.5 h-1.5 rounded-full ${
                             isToday ? 'bg-white/70' :
-                            e.type === 'interview' ? 'bg-orange-400' : 'bg-sky-400'
+                            CAL_DOT[e.type]
                           }`}
                         />
                       ))}
@@ -245,6 +251,9 @@ export default function DashboardPage() {
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-sky-400" /> 預計下一關
               </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-violet-400" /> 關卡日期
+              </span>
             </div>
           )}
 
@@ -256,7 +265,7 @@ export default function DashboardPage() {
                 .map(([day, events]) =>
                   events.map((e, i) => (
                     <div key={`${day}-${i}`} className="flex items-center gap-2 text-xs text-slate-600">
-                      <span className={`w-2 h-2 rounded-full flex-shrink-0 ${e.type === 'interview' ? 'bg-orange-400' : 'bg-sky-400'}`} />
+                      <span className={`w-2 h-2 rounded-full flex-shrink-0 ${CAL_DOT[e.type]}`} />
                       <span className="text-slate-400">{calMonth + 1}/{day}</span>
                       <span>{e.label}</span>
                     </div>

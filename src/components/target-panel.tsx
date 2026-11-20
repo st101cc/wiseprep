@@ -7,13 +7,17 @@ import { getCompanyBySlug, getRoleBySlug, getInterviewFlow } from '@/lib/mock-da
 import type { TargetEntry } from '@/lib/use-targets'
 import { formatAddedDate } from '@/lib/added-date'
 import { APPLICATION_STATUSES, STATUS_LABELS, statusOf, formatStatusDate, type ApplicationStatus } from '@/lib/application-status'
+import { nextStageDate, localDateString } from '@/lib/stage-fields'
+import { cn } from '@/lib/utils'
 
-const FALLBACK_STAGES = ['HR 電話初篩', '線上程式測驗', '技術面試', '行為面試', '最終現場面試']
+export const FALLBACK_STAGES = ['HR 電話初篩', '線上程式測驗', '技術面試', '行為面試', '最終現場面試']
 
 interface Props {
   entry: TargetEntry
   onToggleStage: (i: number) => void
   onSetDate: (field: 'interviewDate' | 'nextRoundDate', date: string) => void
+  onSetStageDate: (i: number, date: string) => void
+  onSetStageNote: (i: number, note: string) => void
   onSetStatus: (status: ApplicationStatus) => void
   onRemove: () => void
 }
@@ -36,7 +40,7 @@ function DaysChip({ days }: { days: number }) {
   return <span className={`text-xs font-medium px-1.5 py-0.5 rounded ${cls}`}>{label}</span>
 }
 
-export default function TargetPanel({ entry, onToggleStage, onSetDate, onSetStatus, onRemove }: Props) {
+export default function TargetPanel({ entry, onToggleStage, onSetDate, onSetStageDate, onSetStageNote, onSetStatus, onRemove }: Props) {
   const [showStages, setShowStages] = useState(false)
 
   const company = getCompanyBySlug(entry.companySlug)
@@ -51,6 +55,7 @@ export default function TargetPanel({ entry, onToggleStage, onSetDate, onSetStat
   const nxtDays = daysFrom(entry.nextRoundDate)
   const addedDate = formatAddedDate(entry.addedAt)
   const statusDate = formatStatusDate(entry.statusChangedAt)
+  const nextStage = nextStageDate(entry.stageDates, entry.stageCompletions, localDateString())
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-5 flex flex-col gap-4">
@@ -101,20 +106,54 @@ export default function TargetPanel({ entry, onToggleStage, onSetDate, onSetStat
         <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
           <div className="h-full rounded-full bg-indigo-600 transition-all" style={{ width: `${pct}%` }} />
         </div>
+        {!showStages && nextStage && (
+          <div className="flex items-center justify-between gap-2 text-xs pt-0.5">
+            <span className="text-slate-500 truncate">下個關卡：{stageNames[nextStage.index] ?? `關卡 ${nextStage.index + 1}`}</span>
+            <span className="flex items-center gap-1.5 flex-shrink-0">
+              <span className="text-slate-400">{nextStage.date}</span>
+              <DaysChip days={daysFrom(nextStage.date) ?? 0} />
+            </span>
+          </div>
+        )}
         {showStages && (
           <div className="pt-1 space-y-1">
             {stageNames.map((name, i) => (
-              <button key={i} onClick={() => onToggleStage(i)}
-                className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-sm transition-colors ${
+              <div key={i}
+                className={cn(
+                  'rounded-lg border px-2.5 py-2 space-y-1.5 transition-colors',
                   entry.stageCompletions[i]
-                    ? 'bg-indigo-50 border border-indigo-100 text-indigo-700'
-                    : 'bg-slate-50 border border-slate-100 text-slate-600 hover:bg-slate-100'
-                }`}>
-                {entry.stageCompletions[i]
-                  ? <CheckCircle2 className="w-4 h-4 text-indigo-500 flex-shrink-0" />
-                  : <Circle className="w-4 h-4 text-slate-300 flex-shrink-0" />}
-                {name}
-              </button>
+                    ? 'bg-indigo-50 border-indigo-100'
+                    : 'bg-slate-50 border-slate-100',
+                )}>
+                <button onClick={() => onToggleStage(i)}
+                  className={cn(
+                    'w-full flex items-center gap-2.5 text-left text-sm transition-colors',
+                    entry.stageCompletions[i] ? 'text-indigo-700' : 'text-slate-600 hover:text-indigo-600',
+                  )}>
+                  {entry.stageCompletions[i]
+                    ? <CheckCircle2 className="w-4 h-4 text-indigo-500 flex-shrink-0" />
+                    : <Circle className="w-4 h-4 text-slate-300 flex-shrink-0" />}
+                  {name}
+                </button>
+                <div className="flex items-center gap-1.5 pl-6">
+                  <input
+                    type="date"
+                    aria-label={`${name} 日期`}
+                    value={entry.stageDates?.[i] ?? ''}
+                    onChange={e => onSetStageDate(i, e.target.value)}
+                    className="border border-slate-200 rounded-md px-1.5 py-0.5 text-xs text-slate-600 bg-white focus:outline-none focus:ring-1 focus:ring-indigo-400 w-32 flex-shrink-0"
+                  />
+                  <input
+                    type="text"
+                    aria-label={`${name} 備註`}
+                    placeholder="備註"
+                    maxLength={200}
+                    value={entry.stageNotes?.[i] ?? ''}
+                    onChange={e => onSetStageNote(i, e.target.value)}
+                    className="min-w-0 flex-1 border border-slate-200 rounded-md px-1.5 py-0.5 text-xs text-slate-600 bg-white placeholder:text-slate-300 focus:outline-none focus:ring-1 focus:ring-indigo-400"
+                  />
+                </div>
+              </div>
             ))}
           </div>
         )}

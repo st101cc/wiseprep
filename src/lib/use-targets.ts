@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { getInterviewFlow } from './mock-data'
 import { saveLocal } from './cloud-state'
 import { formatAddedDate } from './added-date'
+import { setAligned } from './stage-fields'
 import type { ApplicationStatus } from './application-status'
 
 export type { ApplicationStatus } from './application-status'
@@ -15,6 +16,7 @@ export interface TargetEntry {
   interviewDate?: string   // 'YYYY-MM-DD'
   nextRoundDate?: string   // 'YYYY-MM-DD'
   stageDates?: (string | null)[] // per-stage 'YYYY-MM-DD' (tracker v2); calendar sync already reads it
+  stageNotes?: (string | null)[] // per-stage one-line note, aligned with stages
   addedAt: string
   status?: ApplicationStatus  // missing on older entries -> treated as 'wishlist'
   statusChangedAt?: string    // 'YYYY-MM-DD' local date of the last status change
@@ -87,12 +89,31 @@ export function useTargets() {
         : t
     ))
 
-  const setStatus = (companySlug: string, roleSlug: string, status: ApplicationStatus) =>
+  const setStageField = (
+    companySlug: string,
+    roleSlug: string,
+    field: 'stageDates' | 'stageNotes',
+    i: number,
+    value: string,
+  ) =>
+    persist(targets.map(t => {
+      if (t.companySlug !== companySlug || t.roleSlug !== roleSlug) return t
+      const count = getInterviewFlow(companySlug, roleSlug)?.stages.length ?? t.stageCompletions.length
+      return { ...t, [field]: setAligned(t[field], i, value, count) }
+    }))
+
+  const setStageDate = (companySlug: string, roleSlug: string, i: number, date: string) =>
+    setStageField(companySlug, roleSlug, 'stageDates', i, date)
+
+  const setStageNote = (companySlug: string, roleSlug: string, i: number, note: string) =>
+    setStageField(companySlug, roleSlug, 'stageNotes', i, note.slice(0, 200))
+
+  const setStatus =(companySlug: string, roleSlug: string, status: ApplicationStatus) =>
     persist(targets.map(t =>
       t.companySlug === companySlug && t.roleSlug === roleSlug
         ? { ...t, status, statusChangedAt: formatAddedDate(new Date().toISOString()) ?? undefined }
         : t
     ))
 
-  return { targets, isTarget, addTarget, removeTarget, toggleStage, setDate, setStatus, isTaskDone, toggleTaskDone }
+  return { targets, isTarget, addTarget, removeTarget, toggleStage, setDate, setStageDate, setStageNote, setStatus, isTaskDone, toggleTaskDone }
 }
