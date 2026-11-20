@@ -258,5 +258,47 @@
       "Docker/K8s",
       "顧問/商業案例經驗"
     ]
+  },
+  {
+    "slug": "data-scientist",
+    "title": "Data Scientist",
+    "titleZh": "資料科學家",
+    "category": "data",
+    "description": "以資料分析、統計與機器學習回答商業問題，設計實驗並把洞察轉成可執行的產品或營運決策。",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "統計與假設檢定",
+      "機器學習基礎",
+      "資料視覺化與溝通"
+    ],
+    "niceToHaveSkills": [
+      "A/B Testing 與因果推論",
+      "特徵工程",
+      "Spark / 大數據工具",
+      "LLM/GenAI",
+      "商業領域知識"
+    ]
+  },
+  {
+    "slug": "ai-product-manager",
+    "title": "AI Product Manager",
+    "titleZh": "AI 產品經理",
+    "category": "product",
+    "description": "定義 AI／GenAI 產品的價值與路線圖，與資料科學、工程團隊合作，管理模型品質、成本與風險並推動上線。",
+    "requiredSkills": [
+      "需求分析與規格撰寫",
+      "AI/LLM 能力與限制的理解",
+      "資料分析",
+      "跨部門溝通",
+      "評估指標設計（模型品質、商業成效）"
+    ],
+    "niceToHaveSkills": [
+      "技術背景（ML/資料）",
+      "Prompt 與 RAG 產品經驗",
+      "A/B Testing",
+      "AI 風險與合規",
+      "SQL 查詢能力"
+    ]
   }
 ]

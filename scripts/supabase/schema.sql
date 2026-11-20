@@ -56,3 +56,37 @@ create policy "own gcal: select" on google_calendar for select to authenticated 
 create policy "own gcal: insert" on google_calendar for insert to authenticated with check (auth.uid() = user_id);
 create policy "own gcal: update" on google_calendar for update to authenticated using (auth.uid() = user_id) with check (auth.uid() = user_id);
 create policy "own gcal: delete" on google_calendar for delete to authenticated using (auth.uid() = user_id);
+
+-- ── Token-gated read of anonymous reports (for the curator agent's daily pull) ─
+-- `reports` stays unreadable to the client. The Paperclip box calls reports_feed with a secret
+-- token; only the token's sha256 hash is stored here (in feed_tokens, which has RLS on and no
+-- policies, so the anon key cannot read it). Create the hash on the box: sha256sum ~/.wiseprep/reports.token
+create table if not exists feed_tokens (
+  name       text primary key,
+  token_hash text not null
+);
+alter table feed_tokens enable row level security;
+
+create or replace function reports_feed(p_token text, p_since timestamptz default 'epoch')
+returns setof reports
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if not exists (
+    select 1 from feed_tokens
+    where name = 'reports' and token_hash = encode(sha256(convert_to(p_token, 'utf8')), 'hex')
+  ) then
+    raise exception 'unauthorized' using errcode = '28000';
+  end if;
+  return query select * from reports where submitted_at > p_since order by submitted_at limit 500;
+end;
+$$;
+
+revoke all on function reports_feed(text, timestamptz) from public;
+grant execute on function reports_feed(text, timestamptz) to anon;
+
+-- then, once (hash printed by the box setup):
+--   insert into feed_tokens values ('reports', '<sha256 hex>')
+--   on conflict (name) do update set token_hash = excluded.token_hash;

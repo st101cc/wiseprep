@@ -413,7 +413,9 @@
     "commonRoles": [
       "data-engineer",
       "backend-engineer",
-      "software-engineer"
+      "software-engineer",
+      "data-scientist",
+      "ai-product-manager"
     ],
     "interviewDataCount": 1,
     "lastUpdated": "2024-11",

@@ -57,6 +57,9 @@ export interface InterviewFlow {
     lastUpdated: string
     confidenceScore: number
     references?: { title: string; url: string }[]
+    // Plain-language caveat shown on the page whenever the data is not certainly reliable
+    // (e.g. a single anonymous report, conflicting reports). Set by the curator.
+    reliabilityNote?: string
   }
   compensation?: Compensation
 }

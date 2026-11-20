@@ -34,7 +34,8 @@ Re-runnable data pipeline. `npm run scrape` runs all sources; `npm run scrape:co
 
 ### Reports → draft flows (`scripts/reports/`)
 
-How real interview flows grow: users submit via `/report` (saved to `localStorage`), then click **匯出回報資料** to download `wiseprep-reports.json`. Run `npm run reports:to-flows -- <file>` to convert those into **draft** entries at `src/data/interview-flows.draft.json` (correct shape, sensible defaults, `TODO` markers + `_review` context). Drafts are never auto-merged — a curator fills the TODOs and moves good entries into `interview-flows.json` by hand. The draft file is a throwaway review artifact.
+How real interview flows grow: users submit via `/report` (saved to `localStorage`), then click **匯出回報資料** to download `wiseprep-reports.json`. Run `npm run reports:to-flows -- <file>` to convert those into **draft** entries at `src/data/interview-flows.draft.json` (correct shape, sensible defaults, `TODO` markers + `_review` context). **Automatic pull (Paperclip box):** `scripts/reports/pull-reports.mjs` (check: `node scripts/reports/pull-reports.check.mjs`) runs daily from cron on gcp-dev. It reads new rows via the token-gated Supabase function `reports_feed` (schema.sql; only the token's hash is in the database, the token lives in `~/.wiseprep/reports.token` on the box), validates and de-duplicates them into `data/reports/<company>--<role>.json`, and opens a "Merge reports" issue for the curator agent. Reports are anonymous and unverifiable: the curator may not change a stage on fewer than 3 agreeing reports, must set `source.reliabilityNote` when count < 3 or reports conflict, and `ConfidenceIndicator` shows a warning for those flows.
+Drafts are never auto-merged — a curator fills the TODOs and moves good entries into `interview-flows.json` by hand. The draft file is a throwaway review artifact.
 
 ### Routing
 

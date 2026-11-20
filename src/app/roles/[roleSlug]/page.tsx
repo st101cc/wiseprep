@@ -102,6 +102,7 @@ export default function RolePreparationPage({ params }: { params: { roleSlug: st
               hasUserReports={activeFlow.source.hasUserReports}
               isInferred={activeFlow.source.isInferred}
               lastUpdated={activeFlow.source.lastUpdated}
+              reliabilityNote={activeFlow.source.reliabilityNote}
             />
             <InterviewFlowTimeline
               flow={activeFlow}

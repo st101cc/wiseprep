@@ -106,6 +106,7 @@ export default function CompanyDetailPage({ params }: { params: { slug: string }
               hasUserReports={activeFlow.source.hasUserReports}
               isInferred={activeFlow.source.isInferred}
               lastUpdated={activeFlow.source.lastUpdated}
+              reliabilityNote={activeFlow.source.reliabilityNote}
             />
             <InterviewFlowTimeline
               flow={activeFlow}

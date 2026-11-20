@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import type { Session } from '@supabase/supabase-js'
-import { Mail, LogOut, Save, Check, UserRound, Upload, Loader2, Sparkles, RefreshCw, CalendarDays, Unlink } from 'lucide-react'
+import { Mail, LogOut, Check, UserRound, Upload, Loader2, Sparkles, RefreshCw, CalendarDays, Unlink } from 'lucide-react'
 import { pushState, syncCalendar, GCAL_FLAG } from '@/lib/cloud-state'
 import BackButton from '@/components/back-button'
 import Markdown from '@/components/markdown'
@@ -117,9 +117,8 @@ export default function ProfilePage() {
       const res = await fetch('/api/parse-cv', { method: 'POST', body: form })
       const body = await res.json()
       if (!res.ok) throw new Error(body.error ?? `HTTP ${res.status}`)
-      setBackground(body.text)
       setFileName(file.name)
-      setStatus('idle')
+      await save(body.text)
     } catch (e) {
       setMessage(e instanceof Error ? e.message : String(e))
     } finally {
@@ -148,14 +147,16 @@ export default function ProfilePage() {
     }
   }
 
-  const save = async () => {
+  // Upload = save + analyze; the extracted text is never shown (it only feeds the AI).
+  const save = async (text: string) => {
     if (!supabase || !session) return
     setStatus('saving')
-    const { error } = await supabase.from('profiles').upsert({ user_id: session.user.id, background })
+    const { error } = await supabase.from('profiles').upsert({ user_id: session.user.id, background: text })
     if (error) { setStatus('error'); setMessage(error.message); return }
-    setStatus('saved'); setTimeout(() => setStatus('idle'), 1500)
-    // Only re-run when the CV actually changed: the free LLM tier has a small daily quota.
-    if (background.trim() && background !== analyzedText) analyze(background)
+    setBackground(text)
+    setStatus('saved')
+    // Only re-run when the CV actually changed: saves LLM quota.
+    if (text.trim() && text !== analyzedText) analyze(text)
   }
 
   const input = 'w-full border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-400'
@@ -199,22 +200,16 @@ export default function ProfilePage() {
             <label className={`flex flex-col items-center justify-center gap-1.5 rounded-xl border-2 border-dashed px-4 py-6 text-center cursor-pointer transition-colors ${
               uploading ? 'border-indigo-300 bg-indigo-50' : 'border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40'}`}>
               {uploading ? <Loader2 className="w-6 h-6 text-indigo-500 animate-spin" /> : <Upload className="w-6 h-6 text-indigo-500" />}
-              <span className="text-sm text-slate-700">{uploading ? '讀取中…' : fileName ? `已匯入 ${fileName}，點此重新上傳` : '從電腦上傳履歷'}</span>
-              <span className="text-xs text-slate-400">PDF、TXT、MD，5 MB 以內（Word 請先另存 PDF）</span>
+              <span className="text-sm text-slate-700">
+                {uploading ? (status === 'saving' ? '儲存中…' : '讀取中…')
+                  : fileName ? `已上傳 ${fileName} 並儲存，點此上傳新版本`
+                    : background ? '已有儲存的履歷，點此上傳新版本' : '從電腦上傳履歷'}
+              </span>
+              <span className="text-xs text-slate-400">PDF、TXT、MD，5 MB 以內（Word 請先另存 PDF）。上傳後自動儲存到你的帳號並分析，只有你能讀取。</span>
               <input type="file" accept=".pdf,.txt,.md,application/pdf,text/plain" className="sr-only" disabled={uploading}
                 onChange={e => { upload(e.target.files?.[0]); e.target.value = '' }} />
             </label>
           </div>
-          <label className="block space-y-1.5">
-            <span className="text-sm font-medium text-slate-700">擷取出的內容</span>
-            <span className="block text-xs text-slate-400">上傳後會顯示在這裡，可直接修正或補充；按「儲存」才會存到你的帳號。AI 分析會用這段文字比對職缺要求，只有你的帳號能讀取。</span>
-            <textarea value={background} onChange={e => setBackground(e.target.value)} rows={16}
-              placeholder="上傳履歷後自動帶入，也可以直接貼上文字" className={input} />
-          </label>
-          <button onClick={save} disabled={status === 'saving'} className={`${button} bg-indigo-600 text-white hover:bg-indigo-500`}>
-            {status === 'saved' ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
-            {status === 'saving' ? '儲存中…' : status === 'saved' ? '已儲存' : '儲存並分析'}
-          </button>
         </div>
       )}
 
@@ -255,9 +250,6 @@ export default function ProfilePage() {
             <div className="flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-indigo-600" />
               <h2 className="font-display font-semibold text-slate-900">履歷分析</h2>
-              {analysis && analyzedText !== null && analyzedText !== background && !analyzing && (
-                <span className="text-xs text-amber-600">履歷已修改，儲存後會重新分析</span>
-              )}
             </div>
             <button onClick={() => analyze(background)} disabled={analyzing || !background.trim()}
               className={`${button} border border-indigo-200 text-indigo-600 hover:bg-indigo-50`}>
