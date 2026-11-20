@@ -61,7 +61,9 @@ function describeTargets(targets: TargetEntry[], currentComp: CurrentComp | null
     const company = getCompanyBySlug(t.companySlug)
     const role = getRoleBySlug(t.roleSlug)
     const flow = getInterviewFlow(t.companySlug, t.roleSlug)
-    const lines = [`## 目標：${company?.nameEn ?? t.companySlug}（${company?.name ?? ''}）— ${role?.title ?? t.roleSlug}`]
+    const lines = [t.custom
+      ? `## 目標：${t.companyName ?? t.companySlug} — ${t.roleName ?? t.roleSlug}（自訂目標，無資料庫流程）`
+      : `## 目標：${company?.nameEn ?? t.companySlug}（${company?.name ?? ''}）— ${role?.title ?? t.roleSlug}`]
     if (role) lines.push(`必備技能：${role.requiredSkills.join('、')}；加分：${role.niceToHaveSkills.join('、')}`)
     if (t.interviewDate) lines.push(`面試日期：${t.interviewDate}`)
     if (t.nextRoundDate) lines.push(`下一關預計：${t.nextRoundDate}`)

@@ -4,6 +4,7 @@ import { createCipheriv, createDecipheriv, randomBytes } from 'node:crypto'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { buildEvents, type CalEvent, type TargetLike } from './calendar-events'
 import { getCompanyBySlug, getInterviewFlow } from './mock-data'
+import { FALLBACK_STAGES } from './fallback-stages'
 
 const SCOPE = 'https://www.googleapis.com/auth/calendar.app.created'
 const API = 'https://www.googleapis.com/calendar/v3'
@@ -131,5 +132,5 @@ export async function syncForUser(sb: SupabaseClient, userId: string, origin: st
   const { data: profile } = await sb.from('profiles').select('state').eq('user_id', userId).maybeSingle()
   const targets = ((profile?.state as Record<string, unknown> | null)?.wiseprep_targets ?? []) as TargetLike[]
   const today = new Date().toLocaleDateString('sv-SE', { timeZone: TZ })
-  return syncEvents(access, calendarId, buildEvents(targets, today, lookup, origin), today)
+  return syncEvents(access, calendarId, buildEvents(targets, today, lookup, origin, FALLBACK_STAGES), today)
 }

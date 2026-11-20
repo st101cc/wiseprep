@@ -8,9 +8,8 @@ import type { TargetEntry } from '@/lib/use-targets'
 import { formatAddedDate } from '@/lib/added-date'
 import { APPLICATION_STATUSES, STATUS_LABELS, statusOf, formatStatusDate, type ApplicationStatus } from '@/lib/application-status'
 import { nextStageDate, localDateString } from '@/lib/stage-fields'
+import { FALLBACK_STAGES } from '@/lib/fallback-stages'
 import { cn } from '@/lib/utils'
-
-export const FALLBACK_STAGES = ['HR 電話初篩', '線上程式測驗', '技術面試', '行為面試', '最終現場面試']
 
 interface Props {
   entry: TargetEntry
@@ -66,8 +65,8 @@ export default function TargetPanel({ entry, onToggleStage, onSetDate, onSetStag
             <Building2 className="w-5 h-5 text-indigo-600" />
           </div>
           <div className="min-w-0">
-            <p className="font-semibold text-slate-800 truncate">{company?.name ?? entry.companySlug}</p>
-            <p className="text-xs text-slate-500 mt-0.5 truncate">{role?.titleZh ?? entry.roleSlug}</p>
+            <p className="font-semibold text-slate-800 truncate">{entry.companyName ?? company?.name ?? entry.companySlug}</p>
+            <p className="text-xs text-slate-500 mt-0.5 truncate">{entry.roleName ?? role?.titleZh ?? entry.roleSlug}</p>
             {addedDate && <p className="text-xs text-slate-400 mt-0.5">加入於 {addedDate}</p>}
           </div>
         </div>
@@ -191,17 +190,19 @@ export default function TargetPanel({ entry, onToggleStage, onSetDate, onSetStag
         </div>
       </div>
 
-      {/* Footer links */}
-      <div className="flex gap-2 mt-auto pt-1">
-        <Link href={`/companies/${entry.companySlug}`}
-          className="flex-1 text-center text-xs py-2 rounded-lg border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-colors">
-          公司流程
-        </Link>
-        <Link href={`/roles/${entry.roleSlug}`}
-          className="flex-1 inline-flex items-center justify-center gap-1 text-xs py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition-colors">
-          準備頁 <ArrowRight className="w-3 h-3" />
-        </Link>
-      </div>
+      {/* Footer links (custom targets have no company/role page) */}
+      {!entry.custom && (
+        <div className="flex gap-2 mt-auto pt-1">
+          <Link href={`/companies/${entry.companySlug}`}
+            className="flex-1 text-center text-xs py-2 rounded-lg border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-colors">
+            公司流程
+          </Link>
+          <Link href={`/roles/${entry.roleSlug}`}
+            className="flex-1 inline-flex items-center justify-center gap-1 text-xs py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition-colors">
+            準備頁 <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+      )}
     </div>
   )
 }

@@ -6,6 +6,8 @@ import { createHash } from 'node:crypto'
 export interface TargetLike {
   companySlug: string
   roleSlug: string
+  custom?: boolean
+  companyName?: string // set on custom targets; preferred over the lookup name
   stageCompletions: boolean[]
   interviewDate?: string
   nextRoundDate?: string
@@ -60,19 +62,20 @@ function rounds(t: TargetLike, stageCount: number): [string, number][] {
   return Array.from(out.values())
 }
 
-export function buildEvents(targets: TargetLike[], today: string, lookup: Lookup, origin: string): CalEvent[] {
+/** `fallbackStages` (FALLBACK_STAGES from fallback-stages.ts) names stages of targets without flow data. */
+export function buildEvents(targets: TargetLike[], today: string, lookup: Lookup, origin: string, fallbackStages: string[] = []): CalEvent[] {
   const events: CalEvent[] = []
   for (const t of targets) {
     const info = lookup(t.companySlug, t.roleSlug)
-    const company = info?.companyName ?? t.companySlug
+    const company = t.companyName ?? info?.companyName ?? t.companySlug
     const stages = info?.stages ?? []
     const stageCount = stages.length || t.stageCompletions.length
-    const link = `${origin}/companies/${t.companySlug}`
+    const link = t.custom ? `${origin}/dashboard` : `${origin}/companies/${t.companySlug}`
 
     for (const [date, i] of rounds(t, stageCount)) {
       if (date < today) continue
       const s = stages[i]
-      const name = s?.nameZh ?? `第 ${i + 1} 關`
+      const name = s?.nameZh ?? (stages.length ? undefined : fallbackStages[i]) ?? `第 ${i + 1} 關`
       events.push({
         id: eventId(t.companySlug, t.roleSlug, 'round', date, i),
         summary: `面試：${company} – ${name}`,
