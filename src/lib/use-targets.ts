@@ -2,6 +2,11 @@
 import { useState, useEffect } from 'react'
 import { getInterviewFlow } from './mock-data'
 import { saveLocal } from './cloud-state'
+import { formatAddedDate } from './added-date'
+import type { ApplicationStatus } from './application-status'
+
+export type { ApplicationStatus } from './application-status'
+export { STATUS_LABELS } from './application-status'
 
 export interface TargetEntry {
   companySlug: string
@@ -11,6 +16,8 @@ export interface TargetEntry {
   nextRoundDate?: string   // 'YYYY-MM-DD'
   stageDates?: (string | null)[] // per-stage 'YYYY-MM-DD' (tracker v2); calendar sync already reads it
   addedAt: string
+  status?: ApplicationStatus  // missing on older entries -> treated as 'wishlist'
+  statusChangedAt?: string    // 'YYYY-MM-DD' local date of the last status change
 }
 
 const KEY = 'wiseprep_targets' as const
@@ -80,5 +87,12 @@ export function useTargets() {
         : t
     ))
 
-  return { targets, isTarget, addTarget, removeTarget, toggleStage, setDate, isTaskDone, toggleTaskDone }
+  const setStatus = (companySlug: string, roleSlug: string, status: ApplicationStatus) =>
+    persist(targets.map(t =>
+      t.companySlug === companySlug && t.roleSlug === roleSlug
+        ? { ...t, status, statusChangedAt: formatAddedDate(new Date().toISOString()) ?? undefined }
+        : t
+    ))
+
+  return { targets, isTarget, addTarget, removeTarget, toggleStage, setDate, setStatus, isTaskDone, toggleTaskDone }
 }

@@ -6,6 +6,7 @@ import { CheckCircle2, Circle } from 'lucide-react'
 import { getCompanyBySlug, getRoleBySlug, getInterviewFlow } from '@/lib/mock-data'
 import type { TargetEntry } from '@/lib/use-targets'
 import { formatAddedDate } from '@/lib/added-date'
+import { APPLICATION_STATUSES, STATUS_LABELS, statusOf, formatStatusDate, type ApplicationStatus } from '@/lib/application-status'
 
 const FALLBACK_STAGES = ['HR 電話初篩', '線上程式測驗', '技術面試', '行為面試', '最終現場面試']
 
@@ -13,6 +14,7 @@ interface Props {
   entry: TargetEntry
   onToggleStage: (i: number) => void
   onSetDate: (field: 'interviewDate' | 'nextRoundDate', date: string) => void
+  onSetStatus: (status: ApplicationStatus) => void
   onRemove: () => void
 }
 
@@ -34,7 +36,7 @@ function DaysChip({ days }: { days: number }) {
   return <span className={`text-xs font-medium px-1.5 py-0.5 rounded ${cls}`}>{label}</span>
 }
 
-export default function TargetPanel({ entry, onToggleStage, onSetDate, onRemove }: Props) {
+export default function TargetPanel({ entry, onToggleStage, onSetDate, onSetStatus, onRemove }: Props) {
   const [showStages, setShowStages] = useState(false)
 
   const company = getCompanyBySlug(entry.companySlug)
@@ -48,6 +50,7 @@ export default function TargetPanel({ entry, onToggleStage, onSetDate, onRemove 
   const intDays = daysFrom(entry.interviewDate)
   const nxtDays = daysFrom(entry.nextRoundDate)
   const addedDate = formatAddedDate(entry.addedAt)
+  const statusDate = formatStatusDate(entry.statusChangedAt)
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-5 flex flex-col gap-4">
@@ -63,9 +66,24 @@ export default function TargetPanel({ entry, onToggleStage, onSetDate, onRemove 
             {addedDate && <p className="text-xs text-slate-400 mt-0.5">加入於 {addedDate}</p>}
           </div>
         </div>
-        <button onClick={onRemove} className="text-slate-300 hover:text-red-400 transition-colors flex-shrink-0 mt-1">
-          <X className="w-4 h-4" />
-        </button>
+        <div className="flex items-start gap-2 flex-shrink-0">
+          <div className="flex flex-col items-end gap-0.5">
+            <select
+              aria-label="申請狀態"
+              value={statusOf(entry)}
+              onChange={e => onSetStatus(e.target.value as ApplicationStatus)}
+              className="border border-slate-200 rounded-md px-1.5 py-1 text-xs text-slate-600 bg-white focus:outline-none focus:ring-1 focus:ring-indigo-400"
+            >
+              {APPLICATION_STATUSES.map(s => (
+                <option key={s} value={s}>{STATUS_LABELS[s]}</option>
+              ))}
+            </select>
+            {statusDate && <span className="text-[11px] text-slate-400">狀態更新於 {statusDate}</span>}
+          </div>
+          <button onClick={onRemove} className="text-slate-300 hover:text-red-400 transition-colors mt-1">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
       {/* Stage progress */}
