@@ -1,7 +1,8 @@
 'use client'
 
 import { useTargets } from '@/lib/use-targets'
-import { Target, Check } from 'lucide-react'
+import Link from 'next/link'
+import { Target, Check, ArrowRight } from 'lucide-react'
 
 interface Props { companySlug: string; roleSlug: string }
 
@@ -10,6 +11,7 @@ export default function SetTargetButton({ companySlug, roleSlug }: Props) {
   const active = isTarget(companySlug, roleSlug)
 
   return (
+    <span className="inline-flex flex-wrap items-center gap-3">
     <button
       onClick={() => active ? removeTarget(companySlug, roleSlug) : addTarget(companySlug, roleSlug)}
       className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border transition-colors ${
@@ -21,5 +23,11 @@ export default function SetTargetButton({ companySlug, roleSlug }: Props) {
       {active ? <Check className="w-4 h-4" /> : <Target className="w-4 h-4" />}
       {active ? '已加入目標' : '加入目標'}
     </button>
+    {active && (
+      <Link href="/dashboard" className="inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+        前往儀表板<ArrowRight className="w-4 h-4" />
+      </Link>
+    )}
+    </span>
   )
 }

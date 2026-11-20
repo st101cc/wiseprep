@@ -376,8 +376,15 @@
   },
   {
     "slug": "bcg-x-taiwan",
-    "name": "波士頓咨詢公司",
-    "nameEn": "Boston Consulting Group",
+    "name": "BCG X 台灣",
+    "nameEn": "BCG X Taiwan",
+    "aliases": [
+      "BCG",
+      "波士頓顧問公司",
+      "波士頓諮詢公司",
+      "波士頓咨詢公司",
+      "Boston Consulting Group"
+    ],
     "industry": "consulting",
     "companyType": "foreign",
     "location": [
@@ -387,7 +394,7 @@
       "forward-deployed-ai-engineer",
       "ml-engineer"
     ],
-    "interviewDataCount": 0,
+    "interviewDataCount": 1,
     "lastUpdated": "2026-11",
     "hasUserReports": false,
     "website": "https://www.bcg.com/",

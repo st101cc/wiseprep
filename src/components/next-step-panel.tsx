@@ -5,6 +5,7 @@ import type { Session } from '@supabase/supabase-js'
 import { Sparkles, Loader2, LogIn } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { pushState } from '@/lib/cloud-state'
+import Markdown from '@/components/markdown'
 
 export default function NextStepPanel() {
   const [session, setSession] = useState<Session | null>(null)
@@ -58,7 +59,7 @@ export default function NextStepPanel() {
       {error && <p className="text-sm text-red-600">{error}</p>}
       {result && (
         <div className="rounded-xl bg-white border border-slate-200 p-4">
-          <div className="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed">{result.content}</div>
+          <Markdown content={result.content} />
           <p className="text-xs text-slate-400 mt-3">模型：{result.model}</p>
         </div>
       )}

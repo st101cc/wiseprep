@@ -58,8 +58,12 @@ export async function run() {
   const companies = resolved.map(({ seed: s, qid }) => {
     const e = qid ? entities[qid] : null
 
-    const nameEn = (e && label(e, ['en'])) || s.searchName
-    const nameZh = (e && label(e, ['zh-tw', 'zh-hant', 'zh'])) || s.name
+    // keepName: the seed's curated names win over Wikidata (e.g. a brand/unit like "BCG X" vs the parent company).
+    const nameEn = (s.keepName && s.nameEn) || (e && label(e, ['en'])) || s.searchName
+    const nameZh = s.keepName ? s.name : (e && label(e, ['zh-tw', 'zh-hant', 'zh'])) || s.name
+    // Names we did not display stay searchable: seed aliases + the Wikidata labels a keepName replaced.
+    const wikiNames = s.keepName && e ? [label(e, ['zh-tw', 'zh-hant', 'zh']), label(e, ['en'])] : []
+    const aliases = [...new Set([...(s.aliases ?? []), ...wikiNames])].filter((a) => a && a !== nameZh && a !== nameEn)
 
     const industryLabels = e ? claimEntityIds(e, P.industry).map((id) => label(refs[id], ['en', 'zh-tw'])) : []
     const industry = mapIndustry(industryLabels) || s.industry
@@ -78,6 +82,7 @@ export async function run() {
       slug: s.slug,
       name: nameZh,
       nameEn,
+      ...(aliases.length && { aliases }),
       industry,
       companyType: s.companyType,
       location,

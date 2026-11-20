@@ -32,7 +32,8 @@ export default function CompaniesPage() {
   const filtered = useMemo(() => companies.filter(c => {
     if (query.trim()) {
       const q = query.toLowerCase()
-      if (!c.name.includes(query) && !c.nameEn.toLowerCase().includes(q) && !c.commonRoles.some(r => r.includes(query)))
+      const names = [c.name, c.nameEn, c.slug, ...(c.aliases ?? [])]
+      if (!names.some(n => n.toLowerCase().includes(q)) && !c.commonRoles.some(r => r.includes(q)))
         return false
     }
     if (selectedLocations.size > 0 && !c.location.some(l => selectedLocations.has(l))) return false

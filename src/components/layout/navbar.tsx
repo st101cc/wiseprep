@@ -6,7 +6,7 @@ import { Menu, X, Zap } from 'lucide-react'
 const navLinks = [
   { href: '/companies', label: '探索公司' },
   { href: '/roles', label: '探索職缺' },
-  { href: '/dashboard', label: '準備進度' },
+  { href: '/dashboard', label: '我的儀表板' },
   { href: '/report', label: '匿名回報' },
   { href: '/profile', label: '我的檔案' },
 ]

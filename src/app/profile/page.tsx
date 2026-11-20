@@ -4,6 +4,7 @@ import type { Session } from '@supabase/supabase-js'
 import { Mail, LogOut, Save, Check, UserRound, Upload, Loader2, Sparkles, RefreshCw, CalendarDays, Unlink } from 'lucide-react'
 import { pushState, syncCalendar, GCAL_FLAG } from '@/lib/cloud-state'
 import BackButton from '@/components/back-button'
+import Markdown from '@/components/markdown'
 import { supabase } from '@/lib/supabase'
 
 export default function ProfilePage() {
@@ -265,7 +266,7 @@ export default function ProfilePage() {
             </button>
           </div>
           {analyzing && !analysis && <p className="text-sm text-slate-500">正在分析你的履歷，約需 10–30 秒…</p>}
-          {analysis && <div className="rounded-xl bg-white border border-slate-200 p-4 text-sm text-slate-700 whitespace-pre-wrap leading-relaxed">{analysis}</div>}
+          {analysis && <div className="rounded-xl bg-white border border-slate-200 p-5"><Markdown content={analysis} /></div>}
         </div>
       )}
       {message && <p className="text-sm text-red-600">{message}</p>}

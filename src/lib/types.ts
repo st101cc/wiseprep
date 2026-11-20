@@ -8,6 +8,7 @@ export interface Company {
   slug: string
   name: string
   nameEn: string
+  aliases?: string[] // other names to match in search (e.g. the Wikidata name when the seed keeps a curated one)
   industry: Industry
   companyType: CompanyType
   location: string[]
