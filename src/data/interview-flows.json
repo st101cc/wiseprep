@@ -1190,127 +1190,142 @@
     "stages": [
       {
         "order": 1,
-        "name": "Online Assessment (Jupyter)",
-        "nameZh": "線上程式測驗",
-        "estimatedDuration": "90–120 分鐘",
+        "name": "One-way Video Interview",
+        "nameZh": "單向錄影行為面試",
+        "estimatedDuration": "非同步，準備時間不限",
         "format": "async",
-        "difficulty": 3,
+        "difficulty": 2,
         "questionTypes": [
-          "pandas 資料清理",
-          "特徵工程",
-          "ML 建模與評估"
+          "對 BCG X 的了解與申請動機",
+          "最近自學的分析工具：為何學、如何學",
+          "最複雜的分析專案：成果、影響、喜歡與不喜歡之處",
+          "最熟悉的語言、套件與工具",
+          "參與過的高績效團隊及成功原因"
         ],
         "prepTips": [
-          "練習 pandas 缺值/型別/合併處理",
-          "熟悉 scikit-learn pipeline 與交叉驗證",
-          "Notebook 中用 markdown 寫清楚假設與結論"
+          "準備時間不限，每題有兩次錄影機會（單一 PracHub 回報，2026-09）",
+          "此關順序僅見於單一回報，實際是否出現請向 recruiter 確認"
         ],
-        "interviewerRole": "自動批改 / Data Scientist 審閱"
+        "interviewerRole": "錄影審閱"
       },
       {
         "order": 2,
+        "name": "Online Coding Assessment (CodeSignal)",
+        "nameZh": "CodeSignal 線上程式測驗",
+        "estimatedDuration": "90 分鐘",
+        "format": "async",
+        "difficulty": 3,
+        "questionTypes": [
+          "4 題 LeetCode 式程式題",
+          "陣列操作與資料處理"
+        ],
+        "prepTips": [
+          "候選人回報難度不均，從簡單到困難都有，困難題可能需動態規劃並兼顧速度與記憶體",
+          "有回報指出分數達一定門檻才進下一關（非 FDE、非台灣回報）"
+        ],
+        "interviewerRole": "自動評分"
+      },
+      {
+        "order": 3,
         "name": "HR / Recruiter Screen",
         "nameZh": "HR 電話初篩",
-        "estimatedDuration": "30 分鐘",
+        "estimatedDuration": "約 10 分鐘（單一 AI Engineer 回報）",
         "format": "phone",
         "difficulty": 1,
         "questionTypes": [
-          "為何 BCG X / 為何 FDE",
-          "客戶溝通經驗",
-          "時程與薪資期望"
+          "背景與動機"
         ],
         "prepTips": [
-          "準備 2 分鐘中英文自我介紹，聚焦客戶影響力",
-          "準備薪資回答：先講總薪酬，期望值以職級與市場為錨",
-          "詢問剩餘關卡、職級 (Senior vs Lead) 與獎金結構"
+          "詢問後續關卡、職級 (Senior 或 Lead) 與台灣薪酬結構"
         ],
         "interviewerRole": "Recruiter"
       },
       {
-        "order": 3,
-        "name": "Live Coding (if scheduled)",
-        "nameZh": "現場程式面試（可能）",
+        "order": 4,
+        "name": "Live Coding",
+        "nameZh": "現場程式面試",
         "estimatedDuration": "45–60 分鐘",
         "format": "video",
         "difficulty": 3,
         "questionTypes": [
-          "Python 實作",
-          "資料處理",
-          "ML 基礎觀念"
+          "LeetCode 中等難度題",
+          "基礎資料結構與演算法"
         ],
         "prepTips": [
-          "邊寫邊說出思路與取捨",
-          "複習 Python 資料結構與 pandas 常用操作",
-          "準備解釋 bias/variance、過擬合與評估指標"
+          "台北 FDE 回報著重基礎資料結構與演算法",
+          "候選人建議：BCG X 重視思考過程不亞於程式品質，邊寫邊說明"
         ],
-        "interviewerRole": "Senior AI Engineer"
-      },
-      {
-        "order": 4,
-        "name": "Technical Case Interview",
-        "nameZh": "技術案例面試",
-        "estimatedDuration": "45–60 分鐘 × 1–2",
-        "format": "video",
-        "difficulty": 4,
-        "questionTypes": [
-          "AI 解決方案設計",
-          "RAG / Agents 架構",
-          "評估與上線",
-          "對非技術客戶說明"
-        ],
-        "prepTips": [
-          "用「問題界定 → 資料 → 方案 → 評估 → 上線 → 商業影響」架構回答",
-          "比較 LLM 與傳統 ML 的取捨並說明理由",
-          "練習用一分鐘向非技術高層解釋方案與 ROI"
-        ],
-        "interviewerRole": "Principal / Lead AI Engineer"
+        "interviewerRole": "AI Engineer"
       },
       {
         "order": 5,
-        "name": "Final Round: Business & Behavioral",
-        "nameZh": "最終輪 商業／行為面試",
+        "name": "Technical Case Interviews (x2)",
+        "nameZh": "技術案例面試（2 輪）",
+        "estimatedDuration": "45–60 分鐘 × 2",
+        "format": "video",
+        "difficulty": 4,
+        "questionTypes": [
+          "軟體工程系統設計",
+          "技術案例"
+        ],
+        "prepTips": [
+          "方案需技術可行、具商業價值，且能讓技術背景有限的客戶理解",
+          "練習說明取捨與 ROI"
+        ],
+        "interviewerRole": "Senior / Lead AI Engineer"
+      },
+      {
+        "order": 6,
+        "name": "Partner Behavioral / Business Interview",
+        "nameZh": "Partner 行為／商業面試",
         "estimatedDuration": "45 分鐘 × 2",
         "format": "video",
         "difficulty": 4,
         "questionTypes": [
-          "AI 轉商業價值",
-          "客戶情境題",
-          "領導與交付經驗"
+          "個人經歷與行為題",
+          "商業情境題"
         ],
         "prepTips": [
-          "準備 4–5 個 STAR 故事，每個附上可量化的商業影響",
-          "準備一個你主導端到端交付的 AI 專案深談",
-          "避免只談模型準確率，強調營收、成本或風險改善"
+          "準備具可量化商業影響的 STAR 故事",
+          "同為 BCG X 的 FD AI Scientist 終面為 3 場各 45 分鐘、背景討論加案例（不同職位，可作參考）"
         ],
-        "interviewerRole": "Partner / Managing Director"
+        "interviewerRole": "Partner"
       }
     ],
     "source": {
-      "count": 0,
-      "hasUserReports": false,
+      "count": 5,
+      "hasUserReports": true,
       "isInferred": true,
       "lastUpdated": "2026-11",
-      "confidenceScore": 30,
+      "confidenceScore": 50,
       "references": [
         {
-          "title": "PrepLounge – BCG X FDE R2 technical & business cases",
+          "title": "refresh.cv – Lead Forward Deployed AI Engineer, Taipei - BCG X",
+          "url": "https://refresh.cv/jobs/bcg/8d00bb2e-65a7-43fb-afd4-bae47a3d9204"
+        },
+        {
+          "title": "PrepLounge – BCG X Forward Deployed AI Engineer R2 (technical and business cases)",
           "url": "https://www.preplounge.com/consulting-forum/bcg-x-forward-deployed-ai-engineer-r2-preparing-for-technical-and-business-cases-25389"
         },
         {
-          "title": "PrepLounge – FD AI Scientist final round",
+          "title": "PrepLounge – Forward Deployed AI Scientist BCG X final round",
           "url": "https://www.preplounge.com/consulting-forum/forward-deployed-ai-scientist-data-scientist-bcgx-final-round-of-interviews-25070"
         },
         {
-          "title": "PrepLounge – BCG X interview guide",
-          "url": "https://www.preplounge.com/en/blog/consulting/firms/bcg-x-interview"
+          "title": "PracHub – BCG X FDE one-way video interview",
+          "url": "https://prachub.com/interview-experiences/bcg-x-forward-deployed-ai-engineer-interview-experience-five-behavioral-questions-in-a-one-way-video-interview"
         },
         {
-          "title": "Management Consulted – BCG FDE hiring",
-          "url": "https://managementconsulted.com/bcg-forward-deployed-ai-engineer/"
+          "title": "Glassdoor – BCG Forward Deployed Engineer interview questions (search snippet only)",
+          "url": "https://static.glassdoor.be/Interview/Boston-Consulting-Group-Forward-Deployed-Engineer-Interview-Questions-EI_IE3879.0,23_KO24,49.htm"
         },
         {
-          "title": "Dataford – BCG Forward Deployed Engineer guide",
-          "url": "https://dataford.io/interview-guides/the-boston-consulting-group/forward-deployed-engineer"
+          "title": "Glassdoor – BCG AI Engineer interview questions (search snippet only)",
+          "url": "https://static.glassdoor.es/Interview/Boston-Consulting-Group-AI-Engineer-Interview-Questions-EI_IE3879.0,23_KO24,35.htm"
+        },
+        {
+          "title": "Glassdoor – BCG X interview review, Feb 2026 (search snippet only)",
+          "url": "https://www.glassdoor.com/Interview/Boston-Consulting-Group-Interview-E3879-RVW100374942.htm"
         }
       ]
     },
