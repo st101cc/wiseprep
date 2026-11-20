@@ -8,6 +8,8 @@ import NextStepPanel from '@/components/next-step-panel'
 import { useTargets } from '@/lib/use-targets'
 import { getInterviewFlow, getCompanyBySlug } from '@/lib/mock-data'
 import type { InterviewStage } from '@/lib/types'
+import { APPLICATION_STATUSES, STATUS_LABELS, statusOf, type ApplicationStatus } from '@/lib/application-status'
+import { cn } from '@/lib/utils'
 
 const RESOURCE_MAP: { match: RegExp; title: string; url: string }[] = [
   { match: /leetcode|演算法|資料結構|coding|live coding|複雜度|hackerrank|dp|graph|tree|array/i, title: 'LeetCode', url: 'https://leetcode.com' },
@@ -27,7 +29,18 @@ const WEEK_DAYS = ['一', '二', '三', '四', '五', '六', '日']
 const MONTH_NAMES = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 
 export default function DashboardPage() {
-  const { targets, removeTarget, toggleStage, setDate, isTaskDone, toggleTaskDone } = useTargets()
+  const { targets, removeTarget, toggleStage, setDate, setStatus, isTaskDone, toggleTaskDone } = useTargets()
+  const [statusFilter, setStatusFilter] = useState<ApplicationStatus | 'all'>('all')
+  const visibleTargets = statusFilter === 'all' ? targets : targets.filter(t => statusOf(t) === statusFilter)
+  const statusCounts = targets.reduce<Partial<Record<ApplicationStatus, number>>>((acc, t) => {
+    const s = statusOf(t)
+    acc[s] = (acc[s] ?? 0) + 1
+    return acc
+  }, {})
+  const filterChips: { key: ApplicationStatus | 'all'; label: string; count: number }[] = [
+    { key: 'all', label: '全部', count: targets.length },
+    ...APPLICATION_STATUSES.map(s => ({ key: s, label: STATUS_LABELS[s], count: statusCounts[s] ?? 0 })),
+  ]
 
   // Derive today's tasks from each target's NEXT incomplete interview stage
   const tasks = targets.flatMap(t => {
@@ -130,16 +143,40 @@ export default function DashboardPage() {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {targets.map(entry => (
-            <TargetPanel
-              key={`${entry.companySlug}-${entry.roleSlug}`}
-              entry={entry}
-              onToggleStage={i => toggleStage(entry.companySlug, entry.roleSlug, i)}
-              onSetDate={(field, date) => setDate(entry.companySlug, entry.roleSlug, field, date)}
-              onRemove={() => removeTarget(entry.companySlug, entry.roleSlug)}
-            />
-          ))}
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-2">
+            {filterChips.map(c => (
+              <button
+                key={c.key}
+                onClick={() => setStatusFilter(c.key)}
+                className={cn(
+                  'inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-medium transition-colors',
+                  statusFilter === c.key
+                    ? 'bg-indigo-600 border-indigo-600 text-white'
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600',
+                )}
+              >
+                {c.label}
+                <span className={cn('tabular-nums', statusFilter === c.key ? 'text-indigo-100' : 'text-slate-400')}>{c.count}</span>
+              </button>
+            ))}
+          </div>
+          {visibleTargets.length === 0 ? (
+            <p className="text-sm text-slate-400">沒有符合此狀態的目標</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {visibleTargets.map(entry => (
+                <TargetPanel
+                  key={`${entry.companySlug}-${entry.roleSlug}`}
+                  entry={entry}
+                  onToggleStage={i => toggleStage(entry.companySlug, entry.roleSlug, i)}
+                  onSetDate={(field, date) => setDate(entry.companySlug, entry.roleSlug, field, date)}
+                  onSetStatus={status => setStatus(entry.companySlug, entry.roleSlug, status)}
+                  onRemove={() => removeTarget(entry.companySlug, entry.roleSlug)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
 
